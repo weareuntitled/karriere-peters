@@ -1,0 +1,44 @@
+---
+import { faq } from '../data';
+---
+<section class="section section--alt section--border-top" id="faq">
+  <div class="wrap" style="max-width:720px">
+    <div class="section-header" style="text-align:center; margin:0 auto">
+      <span class="section-eyebrow">{faq.eyebrow}</span>
+      <h2 class="section-title">{faq.title}</h2>
+    </div>
+    <div class="reveal" style="margin-top:36px" id="faq-section">
+      {faq.items.map((f, i) => (
+        <div class="faq-item stagger">
+          <button class="faq-trigger" aria-expanded="false">
+            {f.q}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="faq-panel" aria-hidden="true">
+            <div><p>{f.a}</p></div>
+          </div>
+        </div>
+      ))}
+    </div>
+    <script>
+      (function() {
+        var container = document.getElementById('faq-section');
+        if (!container) return;
+        var triggers = container.querySelectorAll('.faq-trigger');
+        triggers.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var expanded = btn.getAttribute('aria-expanded') === 'true';
+            triggers.forEach(function(t) {
+              t.setAttribute('aria-expanded', 'false');
+              t.nextElementSibling.setAttribute('aria-hidden', 'true');
+            });
+            if (!expanded) {
+              btn.setAttribute('aria-expanded', 'true');
+              btn.nextElementSibling.setAttribute('aria-hidden', 'false');
+            }
+          });
+        });
+      })();
+    </script>
+  </div>
+</section>

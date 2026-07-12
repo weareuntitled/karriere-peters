@@ -1,0 +1,21 @@
+---
+import { prozess } from '../data';
+---
+<section class="section section--alt" id="prozess">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">{prozess.eyebrow}</span>
+      <h2 class="section-title">{prozess.title}</h2>
+      <p class="section-body">{prozess.body}</p>
+    </div>
+    <div class="process-grid reveal" style="margin-top:40px">
+      {prozess.steps.map((s) => (
+        <div class="process-step stagger">
+          <span class="process-step__num">{s.num}</span>
+          <h3>{s.title}</h3>
+          <p>{s.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

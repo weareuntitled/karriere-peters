@@ -1,0 +1,258 @@
+00:49:18 [types] Generated 5ms
+
+ astro  v4.16.19 ready in 148 ms
+
+┃ Local    http://127.0.0.1:4321/
+
+00:49:18 watching for file changes...
+00:49:18 [200] / 11ms
+00:49:21 [200] / 5ms
+00:49:56 [200] / 5ms
+00:49:57 [200] / 4ms
+00:52:54 [404] /.well-known/appspecific/com.chrome.devtools.json 1ms
+00:54:17 [watch] src/components/Bewerbung.astro
+00:54:17 [watch] src/components/Prozess.astro
+00:54:17 [watch] src/components/Qualitaet.astro
+00:54:17 [200] / 4ms
+00:54:20 [200] / 5ms
+00:54:44 [200] / 4ms
+00:54:44 [200] / 3ms
+00:54:47 [404] /.well-known/appspecific/com.chrome.devtools.json 1ms
+00:56:07 [200] / 4ms
+00:56:08 [200] / 3ms
+00:56:55 [200] / 3ms
+00:56:55 [200] / 3ms
+00:58:00 [watch] src/components/Stellen.astro
+00:58:00 [200] / 4ms
+00:58:13 [watch] src/components/Stellen.astro
+00:58:13 [200] / 3ms
+00:58:47 [watch] src/components/FAQ.astro
+00:58:47 [watch] src/components/Benefits.astro
+00:58:47 [watch] src/components/Stellen.astro
+00:58:47 [200] / 3ms
+01:02:38 [watch] src/data.ts
+01:02:38 [200] / 4ms
+01:02:45 [200] / 3ms
+01:02:52 [watch] src/components/Bewerbung.astro
+01:02:53 [200] / 4ms
+01:20:42 [watch] src/data.ts
+01:20:42 [200] / 4ms
+01:20:48 [200] / 5ms
+01:20:48 [200] / 4ms
+01:20:48 [watch] src/data.ts
+01:20:51 [200] / 4ms
+01:20:57 [watch] src/data.ts
+01:20:57 [200] / 3ms
+01:21:02 [watch] src/data.ts
+01:21:02 [200] / 3ms
+01:21:16 [watch] src/components/Qualitaet.astro
+01:21:17 [200] / 3ms
+01:21:22 [watch] src/data.ts
+01:21:22 [200] / 4ms
+01:23:04 [watch] src/data.ts
+01:23:04 [200] / 4ms
+01:23:11 [watch] src/data.ts
+01:23:11 [200] / 3ms
+01:23:14 [watch] src/data.ts
+01:23:14 [200] / 3ms
+01:23:24 [watch] src/data.ts
+01:23:24 [200] / 4ms
+01:24:58 [watch] src/components/Stellen.astro
+01:24:58 [200] / 3ms
+01:25:01 [watch] src/data.ts
+01:25:01 [200] / 5ms
+01:25:04 [watch] src/data.ts
+01:25:04 [200] / 3ms
+01:25:07 [watch] src/data.ts
+01:25:07 [200] / 4ms
+01:25:10 [watch] src/data.ts
+01:25:10 [200] / 4ms
+01:25:12 [200] / 3ms
+01:25:16 [watch] src/data.ts
+01:25:16 [200] / 4ms
+01:25:20 [watch] src/data.ts
+01:25:20 [200] / 4ms
+01:25:23 [watch] src/data.ts
+01:25:23 [200] / 4ms
+01:28:07 [watch] src/data.ts
+01:28:07 [200] / 3ms
+01:28:38 [watch] src/data.ts
+01:28:38 [200] / 4ms
+01:29:35 [watch] src/data.ts
+01:29:35 [200] / 3ms
+01:30:36 [watch] src/data.ts
+01:30:36 [200] / 4ms
+01:31:00 [watch] src/components/Prozess.astro
+01:31:00 [200] / 3ms
+01:35:43 [watch] src/data.ts
+01:35:43 [200] / 5ms
+01:39:20 [watch] src/data.ts
+01:39:21 [200] / 3ms
+01:39:24 [200] / 4ms
+01:39:25 [200] / 3ms
+01:39:47 [200] / 3ms
+01:40:59 [watch] src/data.ts
+01:40:59 [200] / 4ms
+01:41:03 [watch] src/data.ts
+01:41:03 [200] / 3ms
+01:42:54 [watch] src/data.ts
+01:42:54 [200] / 4ms
+01:42:57 [200] / 3ms
+01:44:52 [watch] /src/styles/global.css
+11:36:42 [200] / 3ms
+11:37:07 [200] / 3ms
+11:44:34 [watch] src/layouts/Base.astro
+11:44:34 [200] / 3ms
+11:44:39 [watch] src/components/Hero.astro
+11:44:40 [watch] src/components/Hero.astro
+11:44:40 [200] / 2ms
+11:44:41 [watch] src/components/Qualitaet.astro
+11:44:41 [200] / 3ms
+11:44:46 [watch] /src/styles/global.css
+11:44:48 [watch] /src/styles/global.css
+11:44:49 [watch] /src/styles/global.css
+11:44:57 [watch] /src/styles/global.css
+11:45:06 [watch] /src/styles/global.css
+11:45:06 [watch] src/components/Benefits.astro
+11:45:07 [200] / 3ms
+11:45:11 [watch] src/components/Bewerbung.astro
+11:45:11 [200] / 3ms
+11:45:12 [watch] src/components/Bewerbung.astro
+11:45:12 [200] / 4ms
+11:45:14 [watch] src/components/Bewerbung.astro
+11:45:15 [200] / 4ms
+11:46:23 [200] / 2ms
+11:48:18 [watch] src/styles/global.css
+11:48:18 [200] / 3ms
+11:48:22 [watch] src/layouts/Base.astro
+11:48:23 [200] / 5ms
+11:48:29 [watch] src/layouts/Base.astro
+11:48:29 [200] / 3ms
+11:48:33 [watch] src/components/Nav.astro
+11:48:34 [200] / 2ms
+11:48:38 [watch] src/components/Hero.astro
+11:48:39 [200] / 3ms
+11:48:42 [watch] src/components/Stellen.astro
+11:48:43 [200] / 2ms
+11:48:49 [watch] src/components/Stellen.astro
+11:48:49 [200] / 3ms
+11:48:52 [watch] src/components/Benefits.astro
+11:48:52 [200] / 3ms
+11:48:56 [watch] src/components/Benefits.astro
+11:48:56 [200] / 3ms
+11:48:59 [watch] src/components/Benefits.astro
+11:49:00 [200] / 3ms
+11:49:03 [watch] src/components/Qualitaet.astro
+11:49:04 [200] / 5ms
+11:49:08 [watch] src/components/Prozess.astro
+11:49:08 [200] / 3ms
+11:49:12 [watch] src/components/FAQ.astro
+11:49:13 [200] / 3ms
+11:49:22 [watch] src/components/Bewerbung.astro
+11:49:23 [200] / 3ms
+11:49:26 [watch] src/components/Footer.astro
+11:49:26 [200] / 3ms
+11:49:34 [watch] /src/styles/global.css
+11:52:36 [200] / 4ms
+11:53:12 [watch] src/styles/global.css
+11:53:12 [200] / 3ms
+11:53:12 [200] / 4ms
+11:53:17 [watch] /src/styles/global.css
+11:53:20 [watch] /src/styles/global.css
+11:53:24 [watch] /src/styles/global.css
+11:54:01 [watch] /src/styles/global.css
+11:54:42 [200] / 3ms
+11:59:08 [200] / 4ms
+12:01:56 [watch] src/styles/global.css
+12:01:56 [200] / 5ms
+12:01:56 [200] / 3ms
+12:02:03 [watch] src/layouts/Base.astro
+12:02:03 [200] / 3ms
+12:02:03 [200] / 3ms
+12:02:04 [watch] src/components/Nav.astro
+12:02:04 [200] / 3ms
+12:02:04 [200] / 3ms
+12:02:06 [watch] src/components/Hero.astro
+12:02:06 [200] / 3ms
+12:02:07 [200] / 3ms
+12:02:08 [watch] src/components/Stellen.astro
+12:02:08 [200] / 2ms
+12:02:08 [200] / 2ms
+12:02:13 [watch] src/components/Benefits.astro
+12:02:13 [200] / 3ms
+12:02:14 [200] / 3ms
+12:02:15 [watch] src/components/Qualitaet.astro
+12:02:15 [200] / 4ms
+12:02:15 [200] / 3ms
+12:02:16 [watch] src/components/Prozess.astro
+12:02:16 [200] / 4ms
+12:02:17 [200] / 3ms
+12:02:17 [watch] src/components/FAQ.astro
+12:02:17 [200] / 3ms
+12:02:18 [200] / 3ms
+12:02:25 [watch] src/components/Bewerbung.astro
+12:02:25 [200] / 4ms
+12:02:25 [200] / 3ms
+12:02:27 [watch] src/components/Footer.astro
+12:02:27 [200] / 3ms
+12:02:27 [200] / 3ms
+12:03:09 [200] / 4ms
+12:04:47 [200] / 4ms
+12:05:03 [watch] src/components/Qualitaet.astro
+12:05:03 [200] / 4ms
+12:05:03 [200] / 4ms
+12:05:04 [watch] src/components/Prozess.astro
+12:05:04 [200] / 3ms
+12:05:17 [200] / 5ms
+12:05:44 [watch] /src/styles/global.css
+12:05:48 [watch] /src/styles/global.css
+12:05:49 [watch] src/components/Hero.astro
+12:05:49 [200] / 5ms
+12:05:49 [200] / 5ms
+12:05:53 [watch] src/styles/global.css
+12:05:53 [200] / 5ms
+12:05:53 [200] / 5ms
+12:05:57 [watch] /src/styles/global.css
+12:06:14 [200] / 2ms
+12:06:34 [watch] src/styles/global.css
+12:06:34 [200] / 3ms
+12:06:34 [200] / 2ms
+12:07:02 [watch] src/components/Hero.astro
+12:07:02 [200] / 4ms
+12:07:02 [200] / 4ms
+12:07:09 [watch] /src/styles/global.css
+12:07:20 [200] / 4ms
+12:07:50 [200] / 4ms
+12:09:25 [200] / 3ms
+12:12:37 [200] / 4ms
+12:12:46 [200] / 3ms
+12:12:47 [200] / 3ms
+12:13:01 [200] / 3ms
+12:13:01 [200] / 3ms
+12:13:16 [watch] src/data.ts
+12:13:16 [200] / 5ms
+12:13:19 [200] / 2ms
+12:13:20 [watch] src/components/Hero.astro
+12:13:20 [200] / 4ms
+12:13:25 [watch] src/components/Hero.astro
+12:13:25 [200] / 3ms
+12:14:00 [watch] src/data.ts
+12:14:00 [200] / 5ms
+12:14:07 [watch] src/components/Hero.astro
+12:14:08 [200] / 4ms
+12:14:16 [watch] src/styles/global.css
+12:14:17 [200] / 3ms
+12:15:54 [200] / 3ms
+12:16:47 [200] / 4ms
+12:16:49 [watch] src/data.ts
+12:16:49 [200] / 5ms
+12:16:51 [200] / 3ms
+12:16:53 [watch] src/components/Hero.astro
+12:16:53 [200] / 3ms
+12:16:58 [watch] /src/styles/global.css
+12:17:01 [200] / 3ms
+12:18:20 [200] / 3ms
+12:19:56 [watch] src/components/Qualitaet.astro
+12:19:56 [200] / 3ms
+12:20:05 [watch] src/styles/global.css
+12:20:05 [200] / 4ms

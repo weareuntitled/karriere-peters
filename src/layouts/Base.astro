@@ -1,0 +1,96 @@
+---
+import '../styles/global.css';
+import SiteHeader from '../components/SiteHeader.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data';
+
+interface Props { title?: string; description?: string; }
+const {
+  title = `Karriere bei ${site.name} – Jetzt bewerben`,
+  description = `Offene Stellen bei ${site.name} in ${site.city}: Spengler, Folientechniker, Dachdecker. Jetzt bewerben – wir melden uns innerhalb von 12 Stunden.`,
+} = Astro.props;
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#00355f" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" />
+  </head>
+  <body>
+    <a href="#main-content" style="position:absolute;left:-9999px;top:0;z-index:100;padding:12px 24px;background:var(--accent);color:#fff;font-weight:600" onfocus="this.style.left='0'" onblur="this.style.left='-9999px'">Zum Inhalt springen</a>
+    <SiteHeader />
+    <main id="main-content">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const ro = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); } });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+    </script>
+    <script>
+      // Tracking: DataLayer Setup
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('event', 'page_view', {
+        page_title: document.title,
+        page_location: window.location.href
+      });
+
+      // Tracking: Scroll Depth
+      var scrollTracked = {};
+      var scrollHeights = [25, 50, 75, 100];
+      function trackScroll() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var scrollPercent = Math.round((scrollTop / docHeight) * 100);
+        scrollHeights.forEach(function(h) {
+          if (scrollPercent >= h && !scrollTracked[h]) {
+            scrollTracked[h] = true;
+            gtag('event', 'scroll_depth', { percent: h, page_path: window.location.pathname });
+          }
+        });
+      }
+      window.addEventListener('scroll', trackScroll, { passive: true });
+
+      // Tracking: CTA Klicks
+      document.querySelectorAll('a[href="#bewerbung"], a[href="#stellen"], a[href="#prozess"]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          gtag('event', 'cta_click', {
+            cta_text: this.textContent.trim(),
+            cta_href: this.getAttribute('href')
+          });
+        });
+      });
+
+      // Tracking: Job Klicks
+      document.querySelectorAll('.job-card').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var title = this.querySelector('.job-card__title');
+          gtag('event', 'job_click', {
+            job_title: title ? title.textContent.trim() : 'unknown'
+          });
+        });
+      });
+
+      // Tracking: Form Submit
+      var formEl = document.getElementById('form');
+      if (formEl) {
+        formEl.addEventListener('submit', function() {
+          gtag('event', 'form_submit', { page_path: window.location.pathname });
+        });
+      }
+    </script>
+  </body>
+</html>

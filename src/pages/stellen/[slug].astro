@@ -1,0 +1,121 @@
+---
+import Base from '../../layouts/Base.astro';
+import { stellen, site } from '../../data';
+export function getStaticPaths() {
+  return stellen.map((job) => ({
+    params: { slug: job.slug },
+    props: { job },
+  }));
+}
+const { job } = Astro.props;
+const levelLabel = { erfahren: 'Erfahren', azubi: 'Azubi', montage: 'Montage' };
+const otherJobs = stellen.filter((j) => j.id !== job.id);
+---
+<Base title={`${job.title} – Karriere bei ${site.name}`}>
+  <section class="section section--border-bottom">
+    <div class="wrap" style="max-width:800px">
+      <a href="/#stellen" class="btn-back" aria-label="Alle Stellen anzeigen">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
+        Alle Stellen
+      </a>
+      <div class="reveal">
+        <div class="detail-hero">
+          <span class="pill-badge pill-badge--accent stagger">{levelLabel[job.level]}</span>
+          <h1 class="detail-hero__title stagger">{job.title}</h1>
+          <div class="meta-row stagger">
+            <span class="salary-badge">{job.salary_range}</span>
+            <span class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {job.location}
+            </span>
+            <span class="meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Vollzeit · Festanstellung
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:48px">
+    <div class="wrap" style="max-width:800px">
+      <div class="detail-grid">
+        <div class="reveal">
+          <div class="detail-main">
+            <p class="detail-lead stagger">{job.short_description}</p>
+
+            <div class="section-divider stagger"></div>
+
+            <div class="stagger">
+              <h2 class="detail-heading">Deine Aufgaben</h2>
+              <ul class="detail-list">
+                {job.key_tasks.map((t) => <li>{t}</li>)}
+              </ul>
+            </div>
+
+            <div class="section-divider stagger"></div>
+
+            <div class="stagger">
+              <h2 class="detail-heading">Das bringst Du mit</h2>
+              <ul class="detail-list">
+                {job.requirements.map((r) => <li>{r}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal">
+        <div class="detail-sidebar">
+          <div class="detail-sidebar__card stagger">
+            <h3 class="detail-sidebar__title">Das bieten wir</h3>
+            <ul class="detail-offer-list">
+              {job.we_offer.map((o) => (
+                <li>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="14" height="14"><polyline points="20 6 9 17 4 12"/></svg>
+                  {o}
+                </li>
+              ))}
+            </ul>
+            <a href="/#bewerbung" class="btn btn--primary btn--lg btn--arrow" aria-label="Jetzt auf diese Stelle bewerben" style="width:100%;margin-top:20px">
+              Jetzt bewerben
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+            <p class="detail-sidebar__footnote">Rückmeldung innerhalb von 12h</p>
+          </div>
+
+          <div class="detail-questions-card stagger">
+            <p class="detail-questions-card__label">Fragen?</p>
+            <a href={`tel:${site.phone.replace(/\s/g,'')}`} class="detail-questions-card__phone" aria-label={`Telefon: ${site.phone}`}>{site.phone}</a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      {otherJobs.length > 0 && (
+        <div class="reveal">
+        <div class="detail-more-jobs">
+          <h2 class="detail-more-jobs__title">Weitere Stellen bei {site.name}</h2>
+          <div class="jobs-grid">
+            {otherJobs.map((j) => (
+              <a href={`/stellen/${j.slug}`} class="job-card job-card--{j.level} stagger" aria-label={`Details zu ${j.title}`}>
+                <div class="job-card__body">
+                  <div class="job-card__head">
+                    <span class="job-card__badge">{levelLabel[j.level]}</span>
+                    <span class="job-card__salary">{j.salary_range}</span>
+                  </div>
+                  <h3 class="job-card__title">{j.title}</h3>
+                  <p class="job-card__desc">{j.short_description}</p>
+                </div>
+                <div class="job-card__foot">
+                  <span class="btn" style="width:100%">Details</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Base>

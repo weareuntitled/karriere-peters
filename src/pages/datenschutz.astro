@@ -1,0 +1,30 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data';
+---
+<Base title={`Datenschutz – ${site.name}`}>
+  <section class="section">
+    <div class="wrap" style="max-width:720px">
+      <h1 class="h2" style="margin-bottom:32px">Datenschutzerklärung</h1>
+      <h2 class="h3">Verantwortlicher</h2>
+      <p>
+        Spenglermeisterbetrieb Peters GmbH<br />
+        {site.street}, {site.zip} {site.city}<br />
+        Telefon: {site.phone}<br />
+        E-Mail: {site.email}
+      </p>
+      <h2 class="h3">Erhebung und Verarbeitung personenbezogener Daten</h2>
+      <p>Wir erheben und verarbeiten personenbezogene Daten nur, wenn Du uns diese im Rahmen Deiner Bewerbung freiwillig mitteilst. Dies umfasst Vorname, Nachname, E-Mail-Adresse, Telefonnummer, Angaben zu Berufserfahrung und Führerschein sowie die von Dir übermittelte Nachricht.</p>
+      <h2 class="h3">Zweck der Verarbeitung</h2>
+      <p>Deine Daten werden ausschließlich zur Bearbeitung Deiner Bewerbung und zur Kontaktaufnahme im Rahmen des Bewerbungsprozesses verwendet.</p>
+      <h2 class="h3">Rechtsgrundlage</h2>
+      <p>Rechtsgrundlage für die Verarbeitung ist Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen) sowie Deine Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO.</p>
+      <h2 class="h3">Empfänger der Daten</h2>
+      <p>Deine Daten werden per E-Mail an uns übermittelt. Eine Weitergabe an Dritte erfolgt nicht, es sei denn, wir sind gesetzlich dazu verpflichtet.</p>
+      <h2 class="h3">Speicherdauer</h2>
+      <p>Deine Bewerbungsdaten werden nach Abschluss des Bewerbungsprozesses gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Im Falle einer Einstellung werden die Daten in die Personalakte überführt.</p>
+      <h2 class="h3">Deine Rechte</h2>
+      <p>Du hast jederzeit das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerruf Deiner Einwilligung. Wende Dich dazu an die oben genannte E-Mail-Adresse. Du hast außerdem das Recht, Beschwerde bei der zuständigen Aufsichtsbehörde einzulegen.</p>
+    </div>
+  </section>
+</Base>
