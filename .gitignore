@@ -1,4 +1,4 @@
 node_modules/
-dist/
+# dist/ committed for push-to-deploy
 .DS_Store
 *.local
