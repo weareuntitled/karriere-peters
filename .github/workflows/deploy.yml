@@ -1,29 +1,31 @@
-name: Deploy to All-Inkl
+name: Deploy
 
 on:
   push:
-    branches: [main]
-  workflow_dispatch:
+    branches: [master]
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: npm
+          node-version: 22
 
       - run: npm ci
       - run: npm run build
 
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy to server
+        uses: easingthemes/ssh-deploy@v5
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./dist/
-          server-dir: ${{ secrets.FTP_TARGET_DIR }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.SERVER_HOST }}
+          REMOTE_USER: ${{ secrets.SERVER_USER }}
+          SOURCE: dist/
+          TARGET: /var/repos/karriere-work/dist/
+          SCRIPT_AFTER: |
+            rm -rf /var/www/karriere/*
+            cp -r /var/repos/karriere-work/dist/* /var/www/karriere/
+            chmod -R a+rX /var/www/karriere
