@@ -1,0 +1,307 @@
+<!-- ============================================
+     ABOUT TIMELINE - Glassmorphism Style
+     Für Elementor: Einfügen als HTML-Widget
+     ============================================ -->
+
+<style>
+    .sp-timeline-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+    
+    .sp-timeline-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    
+    .sp-timeline-header h2 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: #1a1c1e;
+        margin-bottom: 16px;
+    }
+    
+    .sp-timeline-header p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #404751;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* Timeline */
+    .sp-timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px 0;
+    }
+    
+    /* Vertical Line */
+    .sp-timeline::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, #0071bc, rgba(0, 113, 188, 0.1));
+    }
+    
+    @media (max-width: 768px) {
+        .sp-timeline::before {
+            left: 30px;
+        }
+    }
+    
+    /* Timeline Item */
+    .sp-timeline-item {
+        position: relative;
+        margin-bottom: 48px;
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .sp-timeline-item:nth-child(odd) {
+        justify-content: flex-start;
+        padding-right: calc(50% + 40px);
+    }
+    
+    .sp-timeline-item:nth-child(even) {
+        justify-content: flex-end;
+        padding-left: calc(50% + 40px);
+    }
+    
+    @media (max-width: 768px) {
+        .sp-timeline-item:nth-child(odd),
+        .sp-timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: 60px;
+        }
+    }
+    
+    /* Timeline Node */
+    .sp-timeline-node {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 2px solid #0071bc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        box-shadow: 0 4px 16px rgba(0, 113, 188, 0.15);
+    }
+    
+    .sp-timeline-node span {
+        font-size: 24px;
+        color: #0071bc;
+    }
+    
+    @media (max-width: 768px) {
+        .sp-timeline-node {
+            left: 30px;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .sp-timeline-node span {
+            font-size: 20px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .sp-timeline-node {
+            width: 36px;
+            height: 36px;
+        }
+        
+        .sp-timeline-node span {
+            font-size: 18px;
+        }
+    }
+    
+    /* Timeline Card */
+    .sp-timeline-card {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+    
+    .sp-timeline-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12);
+    }
+    
+    .sp-timeline-year {
+        display: inline-block;
+        padding: 4px 12px;
+        background: #d1e4ff;
+        color: #00497c;
+        border-radius: 9999px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        margin-bottom: 12px;
+    }
+    
+    .sp-timeline-card h3 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #1a1c1e;
+        margin-bottom: 8px;
+    }
+    
+    .sp-timeline-card p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #404751;
+        margin: 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .sp-timeline-header h2 {
+            font-size: 28px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .sp-timeline-container {
+            padding: 0 16px;
+        }
+        
+        .sp-timeline-header {
+            margin-bottom: 32px;
+        }
+        
+        .sp-timeline-header h2 {
+            font-size: 28px;
+        }
+        
+        .sp-timeline-card {
+            padding: 20px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .sp-timeline-header h2 {
+            font-size: 26px;
+        }
+        
+        .sp-timeline-header p {
+            font-size: 15px;
+        }
+        
+        .sp-timeline-card h3 {
+            font-size: 18px;
+        }
+        
+        .sp-timeline-card p {
+            font-size: 13px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .sp-timeline-card {
+            padding: 16px;
+            border-radius: 12px;
+        }
+        
+        .sp-timeline-card h3 {
+            font-size: 16px;
+        }
+        
+        .sp-timeline-year {
+            font-size: 12px;
+            padding: 3px 10px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .sp-timeline-header h2 {
+            font-size: 24px;
+        }
+    }
+</style>
+
+<!-- Material Symbols Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<div class="sp-timeline-container">
+    <div class="sp-timeline-header">
+        <h2>Unsere Geschichte</h2>
+        <p>Seit 1990 prägen wir den Spengler-Handwerk in Küchbach und darüber hinaus.</p>
+    </div>
+    
+    <div class="sp-timeline">
+        <!-- Item 1 -->
+        <div class="sp-timeline-item">
+            <div class="sp-timeline-node">
+                <span class="material-symbols-outlined">build</span>
+            </div>
+            <div class="sp-timeline-card">
+                <span class="sp-timeline-year">1990</span>
+                <h3>Gründung</h3>
+                <p>Der Spenglermeisterbetrieb Peters wird in Küchbach in Schwaben gegründet. Starkes Fundament für kommende Generationen.</p>
+            </div>
+        </div>
+        
+        <!-- Item 2 -->
+        <div class="sp-timeline-item">
+            <div class="sp-timeline-node">
+                <span class="material-symbols-outlined">handshake</span>
+            </div>
+            <div class="sp-timeline-card">
+                <span class="sp-timeline-year">2001</span>
+                <h3>Fassadenpreis</h3>
+                <p>Auszeichnung für herausragende Spenglerarbeiten an einer denkmalgeschützten Fassade in München, Nymphenburger Straße.</p>
+            </div>
+        </div>
+        
+        <!-- Item 3 -->
+        <div class="sp-timeline-item">
+            <div class="sp-timeline-node">
+                <span class="material-symbols-outlined">verified</span>
+            </div>
+            <div class="sp-timeline-card">
+                <span class="sp-timeline-year">2017</span>
+                <h3>Kemperol-Zertifizierung</h3>
+                <p>Zertifizierter Fachbetrieb mit zertifiziertem Fachpersonal für Kemperol Abdichtungen.</p>
+            </div>
+        </div>
+        
+        <!-- Item 4 -->
+        <div class="sp-timeline-item">
+            <div class="sp-timeline-node">
+                <span class="material-symbols-outlined">groups</span>
+            </div>
+            <div class="sp-timeline-card">
+                <span class="sp-timeline-year">Heute</span>
+                <h3>2. Generation</h3>
+                <p>Familiär geführter Ausbildungsbetrieb mit Spenglermeister und TÜV-geprüftem Folientechniker.</p>
+            </div>
+        </div>
+    </div>
+</div>

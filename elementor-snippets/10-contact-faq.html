@@ -1,0 +1,245 @@
+<!-- ============================================
+     CONTACT FAQ - Accordion Glassmorphism
+     Für Elementor: Einfügen als HTML-Widget
+     ============================================ -->
+
+<style>
+    .sp-faq-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+    
+    .sp-faq-header {
+        text-align: center;
+        margin-bottom: 48px;
+    }
+    
+    .sp-faq-header h2 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: #1a1c1e;
+        margin-bottom: 16px;
+    }
+    
+    .sp-faq-header p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #404751;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    /* FAQ Accordion */
+    .sp-faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .sp-faq-item {
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        margin-bottom: 16px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .sp-faq-item:hover {
+        box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+    }
+    
+    .sp-faq-question {
+        padding: 20px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1c1e;
+        transition: background 0.3s ease;
+    }
+    
+    .sp-faq-question:hover {
+        background: rgba(0, 113, 188, 0.05);
+    }
+    
+    .sp-faq-question .material-symbols-outlined {
+        font-size: 20px;
+        color: #0071bc;
+        transition: transform 0.3s ease;
+    }
+    
+    .sp-faq-item.active .sp-faq-question .material-symbols-outlined {
+        transform: rotate(180deg);
+    }
+    
+    .sp-faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        padding: 0 24px;
+    }
+    
+    .sp-faq-item.active .sp-faq-answer {
+        max-height: 500px;
+        padding: 0 24px 20px;
+    }
+    
+    .sp-faq-answer p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        line-height: 1.6;
+        color: #404751;
+        margin: 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .sp-faq-header h2 {
+            font-size: 28px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .sp-faq-container {
+            padding: 0 16px;
+        }
+        
+        .sp-faq-header {
+            margin-bottom: 32px;
+        }
+        
+        .sp-faq-header h2 {
+            font-size: 28px;
+        }
+        
+        .sp-faq-question {
+            padding: 16px 20px;
+            font-size: 15px;
+        }
+        
+        .sp-faq-answer {
+            padding: 0 20px;
+        }
+        
+        .sp-faq-item.active .sp-faq-answer {
+            padding: 0 20px 16px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .sp-faq-header h2 {
+            font-size: 26px;
+        }
+        
+        .sp-faq-header p {
+            font-size: 15px;
+        }
+        
+        .sp-faq-question {
+            padding: 14px 16px;
+            font-size: 14px;
+        }
+        
+        .sp-faq-question .material-symbols-outlined {
+            font-size: 18px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .sp-faq-header h2 {
+            font-size: 24px;
+        }
+        
+        .sp-faq-question {
+            padding: 12px 14px;
+            font-size: 13px;
+        }
+        
+        .sp-faq-answer p {
+            font-size: 13px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .sp-faq-header h2 {
+            font-size: 22px;
+        }
+    }
+</style>
+
+<!-- Material Symbols Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<div class="sp-faq-container">
+    <div class="sp-faq-header">
+        <h2>Häufige Fragen</h2>
+        <p>Finden Sie schnell Antworten auf die wichtigsten Fragen zu unseren Leistungen.</p>
+    </div>
+    
+    <div class="sp-faq-list">
+        <!-- FAQ Item 1 -->
+        <div class="sp-faq-item active">
+            <div class="sp-faq-question">
+                <span>Welche Materialien verarbeiten Sie?</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <div class="sp-faq-answer">
+                <p>Wir verarbeiten ausschließlich hochwertige Materialien wie KME-Kupfer, Rheinzink, Prefalz, Uginox sowie Wolfin-Abdichtungssysteme und Kemperol-Beschichtungssysteme für den Bereich Flachdachbau.</p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="sp-faq-item">
+            <div class="sp-faq-question">
+                <span>Arbeiten Sie auch an denkmalgeschützten Objekten?</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <div class="sp-faq-answer">
+                <p>Ja, wir spezialisieren uns auf Sanierung denkmalgeschützter Objekte. Im Jahr 2001 haben wir sogar den Fassadenpreis für Spenglerarbeiten an einer denkmalgeschützten Fassade in München erhalten.</p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="sp-faq-item">
+            <div class="sp-faq-question">
+                <span>Bieten Sie auch Rinnenreinigung an?</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <div class="sp-faq-answer">
+                <p>Ja, unsere Dienstleistungen umfassen auch die Rinnenreinigung sowie die komplette Wartung von Entwässerungssystemen.</p>
+            </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="sp-faq-item">
+            <div class="sp-faq-question">
+                <span>Wie kontaktiere ich Sie für ein Angebot?</span>
+                <span class="material-symbols-outlined">expand_more</span>
+            </div>
+            <div class="sp-faq-answer">
+                <p>Sie können uns über unser Kontaktformular, per E-Mail oder telefonisch während unserer Öffnungszeiten (Mo-Do 08:00-17:00, Fr 08:00-14:00) erreichen.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQ Accordion Script -->
+<script>
+document.querySelectorAll('.sp-faq-question').forEach(question => {
+    question.addEventListener('click', function() {
+        const item = this.parentElement;
+        document.querySelectorAll('.sp-faq-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+    });
+});
+</script>
