@@ -1,0 +1,78 @@
+<style>
+  .cb-wrap {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+    background: #fff; border-top: 1px solid #e2e5e8;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+    padding: 16px 24px;
+    transform: translateY(100%); opacity: 0;
+    transition: transform 400ms cubic-bezier(0.23,1,0.32,1), opacity 400ms ease;
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+  .cb-wrap--show { transform: translateY(0); opacity: 1; }
+  .cb-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .cb-text { font-size: 0.8125rem; color: #42474f; line-height: 1.5; flex: 1; min-width: 240px; }
+  .cb-text a { color: #0071bc; text-decoration: underline; }
+  .cb-text a:hover { color: #0056b3; }
+  .cb-actions { display: flex; align-items: center; gap: 12px; flex: none; }
+  .cb-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 10px 24px; border-radius: 4px; font-weight: 600; font-size: 0.8125rem;
+    border: none; cursor: pointer; font-family: inherit; min-height: 40px;
+    transition: background 150ms ease, transform 150ms ease;
+    touch-action: manipulation;
+  }
+  .cb-btn:active { transform: scale(0.97); }
+  .cb-btn--accept { background: #0071bc; color: #fff; }
+  .cb-btn--accept:hover { background: #0056b3; }
+  .cb-btn--accept:active { background: #003f87; }
+  .cb-btn--decline { background: transparent; color: #727780; padding: 10px 8px; }
+  .cb-btn--decline:hover { color: #191c1e; }
+  @media (max-width: 640px) {
+    .cb-wrap { padding: 16px; }
+    .cb-inner { flex-direction: column; align-items: stretch; gap: 12px; }
+    .cb-text { font-size: 0.75rem; min-width: 0; }
+    .cb-actions { flex-direction: row; gap: 8px; }
+    .cb-btn { flex: 1; padding: 10px 16px; font-size: 0.75rem; }
+  }
+</style>
+
+<div id="cb" class="cb-wrap" role="dialog" aria-label="Cookie-Einstellungen">
+  <div class="cb-inner">
+    <div class="cb-text">
+      Diese Website nutzt Cookies und Tracking, um dir die beste Erfahrung zu bieten.
+      <a href="/datenschutz" target="_blank">Mehr erfahren</a>.
+    </div>
+    <div class="cb-actions">
+      <button class="cb-btn cb-btn--accept" id="cb-accept">Akzeptieren</button>
+      <button class="cb-btn cb-btn--decline" id="cb-decline">Nur essentielle</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    var KEY = 'cb-consent-v2';
+    var val = localStorage.getItem(KEY);
+    if (val === 'accepted' || val === 'declined') return;
+
+    var el = document.getElementById('cb');
+    var accept = document.getElementById('cb-accept');
+    var decline = document.getElementById('cb-decline');
+
+    function allowTracking() {
+      localStorage.setItem(KEY, 'accepted');
+      el.classList.remove('cb-wrap--show');
+      if (window._gdprConsentTrack) window._gdprConsentTrack();
+    }
+
+    function denyTracking() {
+      localStorage.setItem(KEY, 'declined');
+      el.classList.remove('cb-wrap--show');
+      if (window._gdprRemoveTracking) window._gdprRemoveTracking();
+    }
+
+    requestAnimationFrame(function() { el.classList.add('cb-wrap--show'); });
+    accept.addEventListener('click', allowTracking);
+    decline.addEventListener('click', denyTracking);
+  })();
+</script>
