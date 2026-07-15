@@ -1,0 +1,120 @@
+---
+---
+<section class="sp-cta-section">
+  <div class="sp-cta-container">
+    <div class="sp-cta-banner">
+      <div class="sp-cta-bg" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="" />
+      </div>
+      <div class="sp-cta-content">
+        <div class="sp-cta-text">
+          <h2>Bereit für Ihr Projekt?</h2>
+          <p>Lassen Sie uns über Ihre Vision sprechen. Wir beraten Sie umfassend zu Materialien und Umsetzung.</p>
+        </div>
+        <a href="/kontakt" class="sp-cta-button">
+          Kontakt aufnehmen
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-cta-section { padding: 0 32px 80px; }
+  .sp-cta-container { max-width: 1280px; margin: 0 auto; }
+
+  .sp-cta-banner { position: relative; border-radius: 24px; overflow: hidden; }
+
+  .sp-cta-bg { position: absolute; inset: 0; }
+  .sp-cta-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.2; mix-blend-mode: luminosity; }
+
+  .sp-cta-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 64px;
+    background: rgba(0, 88, 148, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+  }
+
+  .sp-cta-text h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: white;
+    margin-bottom: 16px;
+  }
+
+  .sp-cta-text p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 480px;
+    margin: 0;
+  }
+
+  .sp-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 32px;
+    background: white;
+    color: #0071bc;
+    border-radius: 9999px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+  }
+
+  .sp-cta-button:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2); }
+  .sp-cta-button .material-symbols-outlined { font-size: 20px; }
+
+  @media (max-width: 1024px) {
+    .sp-cta-content { padding: 48px; gap: 24px; }
+    .sp-cta-text h2 { font-size: 28px; }
+    .sp-cta-text p { font-size: 16px; }
+  }
+
+  @media (max-width: 768px) {
+    .sp-cta-content { flex-direction: column; text-align: center; padding: 40px 24px; }
+    .sp-cta-text { width: 100%; }
+    .sp-cta-text h2 { font-size: 28px; }
+    .sp-cta-text p { max-width: 100%; }
+    .sp-cta-button { width: 100%; justify-content: center; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-cta-section { padding: 0 16px 60px; }
+    .sp-cta-content { padding: 32px 20px; border-radius: 16px; }
+    .sp-cta-text h2 { font-size: 24px; margin-bottom: 12px; }
+    .sp-cta-text p { font-size: 15px; }
+    .sp-cta-button { padding: 14px 24px; font-size: 13px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-cta-content { padding: 24px 16px; }
+    .sp-cta-text h2 { font-size: 22px; }
+    .sp-cta-text p { font-size: 14px; line-height: 1.5; }
+    .sp-cta-button { padding: 12px 20px; font-size: 12px; }
+    .sp-cta-button .material-symbols-outlined { font-size: 16px; }
+  }
+
+  @media (max-width: 360px) {
+    .sp-cta-text h2 { font-size: 20px; }
+    .sp-cta-button { padding: 10px 16px; }
+  }
+</style>

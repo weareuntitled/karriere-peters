@@ -1,0 +1,21 @@
+---
+// Typebot Embed – ID muss durch echte Typebot-ID ersetzt werden
+interface Props {
+  botId?: string;
+}
+const { botId = 'YOUR_TYPEBOT_ID' } = Astro.props;
+---
+<div class="typebot-container" id="typebot-container">
+  <div id="typebot-embed" data-bot={botId}></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@typebot.io/embed@0.3/dist/embed.min.js"></script>
+
+<style>
+  .typebot-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+  }
+</style>

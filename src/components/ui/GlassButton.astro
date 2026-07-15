@@ -1,0 +1,47 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary';
+  href?: string;
+  class?: string;
+}
+
+const { variant = 'primary', href, class: className = '' } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+<Tag href={href} class:list={['glass-button', variant, className]}>
+  <slot />
+</Tag>
+
+<style>
+  .glass-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: var(--glass-radius-capsule, 9999px);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--glass-transition-medium, 0.3s);
+    border: none;
+  }
+  .glass-button.primary {
+    background: var(--primary, #0071bc);
+    color: var(--on-primary, #fff);
+    box-shadow: var(--glass-shadow-light, 0 4px 16px rgba(0,113,188,0.08));
+  }
+  .glass-button.secondary {
+    background: var(--glass-bg-light, rgba(255,255,255,0.7));
+    border: 1px solid var(--glass-border-accent, rgba(0,113,188,0.15)) !important;
+    color: var(--primary, #0071bc);
+    backdrop-filter: blur(8px);
+  }
+  .glass-button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--glass-shadow-medium, 0 8px 32px rgba(0,113,188,0.08));
+  }
+</style>

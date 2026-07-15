@@ -1,0 +1,72 @@
+---
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <img src="/images/logoheader1000.jpg" alt="Spenglerei Peters" width="140" />
+      <p>Spenglermeisterbetrieb Peters GmbH<br />Seit 1990 in Kühbach</p>
+    </div>
+    <div class="footer-links">
+      <a href="/kontakt">Kontakt</a>
+      <a href="/karriere">Karriere</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
+    </div>
+    <div class="footer-contact">
+      <p>Dieselstraße 10<br />86556 Kühbach</p>
+      <p>Mo–Do 08:00–17:00<br />Fr 08:00–14:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {year} Spenglerei Peters. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--surface-container, #edeeef);
+    border-top: 1px solid var(--glass-border-light, rgba(255,255,255,0.5));
+    padding: 48px 32px 24px;
+    margin-top: 80px;
+  }
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-brand img { height: 36px; margin-bottom: 12px; }
+  .footer-brand p, .footer-contact p {
+    font-size: 14px;
+    color: var(--on-surface-variant, #404751);
+    line-height: 1.6;
+    margin: 0;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-size: 14px;
+    color: var(--on-surface, #191c1d);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--primary, #0071bc); }
+  .footer-contact { text-align: right; }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 48px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid var(--outline-variant, #c0c7d3);
+    text-align: center;
+  }
+  .footer-bottom p { font-size: 13px; color: var(--outline, #717882); margin: 0; }
+  @media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; gap: 32px; }
+    .footer-contact { text-align: left; }
+  }
+</style>

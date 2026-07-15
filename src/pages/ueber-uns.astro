@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import AboutTimelineSection from '../sections/AboutTimelineSection.astro';
+import TeamSection from '../sections/TeamSection.astro';
+import CertificationsSection from '../sections/CertificationsSection.astro';
+import GlassButton from '../components/ui/GlassButton.astro';
+---
+<BaseLayout title="Über uns" description="Spenglermeisterbetrieb Peters – seit 1990 in Kühbach in 2. Generation. Familiengeführter Ausbildungsbetrieb mit TÜV-zertifizierter Folientechnik.">
+  <Navbar />
+  <main>
+    <!-- Hero -->
+    <section class="about-hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="" aria-hidden="true" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-badge">Familienbetrieb seit 1990</span>
+        <h1>Über Spenglerei Peters</h1>
+        <p>Wir sind ein familiär geführter Ausbildungsbetrieb in Kühbach – heute bereits in 2. Generation. Unser Team vereint Tradition mit modernster Technik.</p>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <AboutTimelineSection />
+
+    <!-- Team -->
+    <TeamSection />
+
+    <!-- Certifications -->
+    <CertificationsSection />
+
+    <!-- Partner -->
+    <section class="partner-section">
+      <div class="sp-partner-container">
+        <div class="sp-partner-header">
+          <h2>Unsere Partner</h2>
+        </div>
+        <div class="sp-partner-grid">
+          <div class="sp-partner-card">
+            <span class="material-symbols-outlined">handshake</span>
+            <div>
+              <h3>Zimmerei Achter</h3>
+              <p>Aichach-Ecknach – langjährige Zusammenarbeit im Bereich Dach und Fassade.</p>
+            </div>
+          </div>
+          <div class="sp-partner-card">
+            <span class="material-symbols-outlined">architecture</span>
+            <div>
+              <h3>Verschiedene Architekten</h3>
+              <p>Enge Kooperation mit Architekturbüros aus München und Umgebung.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+      <div class="sp-cta-inner">
+        <h2>Möchtest du Teil unseres Teams werden?</h2>
+        <p>Wir suchen immer motivierte Fachkräfte und Auszubildende.</p>
+        <GlassButton href="/karriere">Zu den Stellenangeboten</GlassButton>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .about-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 32px 80px;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(248,249,250,0.95) 0%, rgba(248,249,250,0.8) 100%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 640px; }
+  .hero-badge {
+    display: inline-block; padding: 6px 16px;
+    background: rgba(0,113,188,0.1);
+    border: 1px solid rgba(0,113,188,0.15);
+    border-radius: 9999px; font-size: 13px; font-weight: 600;
+    color: #0071bc; margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin: 0 0 16px; color: #1a1c1e; }
+  p { font-size: 18px; color: #404751; margin: 0; line-height: 1.7; }
+
+  .partner-section { padding: 80px 32px; background: #f8f9fa; }
+  .sp-partner-container { max-width: 800px; margin: 0 auto; }
+  .sp-partner-header { text-align: center; margin-bottom: 40px; }
+  .sp-partner-header h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(24px, 3vw, 32px); color: #1a1c1e; margin: 0; }
+  .sp-partner-grid { display: flex; flex-direction: column; gap: 24px; }
+  .sp-partner-card {
+    display: flex; gap: 20px; align-items: flex-start;
+    padding: 24px;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+    transition: all 0.3s ease;
+  }
+  .sp-partner-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+  .sp-partner-card .material-symbols-outlined { font-size: 32px; color: #0071bc; flex-shrink: 0; }
+  .sp-partner-card h3 { font-family: 'DM Sans', sans-serif; font-size: 17px; margin: 0 0 6px; color: #1a1c1e; }
+  .sp-partner-card p { font-family: 'DM Sans', sans-serif; font-size: 14px; color: #404751; margin: 0; line-height: 1.6; }
+
+  .about-cta { padding: 80px 32px; text-align: center; }
+  .sp-cta-inner { max-width: 600px; margin: 0 auto; }
+  .about-cta h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(24px, 3vw, 32px); margin: 0 0 16px; color: #1a1c1e; }
+  .about-cta p { font-size: 17px; color: #404751; margin: 0 0 32px; }
+
+  @media (max-width: 640px) { .about-hero, .partner-section, .about-cta { padding: 100px 16px 60px; } }
+</style>

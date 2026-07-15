@@ -1,0 +1,149 @@
+---
+const benefits = [
+  { icon: 'school', title: 'Weiterbildung', desc: 'Regelmäßige Schulungen und Zertifizierungen auf Kosten des Arbeitgebers.' },
+  { icon: 'groups', title: 'Familiäres Umfeld', desc: 'In einem familiär geführten Betrieb schätzen wir jeden Mitarbeiter.' },
+  { icon: 'construction', title: 'Moderne Werkstatt', desc: 'State-of-the-art Ausrüstung und eigene Werkstatt für präzise Fertigung.' },
+  { icon: 'payments', title: 'Faire Vergütung', desc: 'Leistungsgerechte Bezahlung nach Tarif und zusätzliche Boni.' },
+  { icon: 'schedule', title: 'Flexible Arbeitszeiten', desc: 'Familiär angepasste Arbeitszeiten und Work-Life-Balance.' },
+  { icon: 'security', title: 'Sicherheit', desc: 'Alle nötigen Schutzausrüstungen und Sicherheitstrainings inklusive.' },
+];
+---
+<section class="sp-benefits-section">
+  <div class="sp-benefits-container">
+    <div class="sp-benefits-header">
+      <h2>Ihre Vorteile</h2>
+      <p>Wir bieten Ihnen mehr als nur einen Job – entdecken Sie unsere Benefits.</p>
+    </div>
+    <div class="sp-benefits-grid">
+      {benefits.map((b) => (
+        <div class="sp-benefit-card">
+          <div class="sp-benefit-icon">
+            <span class="material-symbols-outlined">{b.icon}</span>
+          </div>
+          <h3>{b.title}</h3>
+          <p>{b.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-benefits-section { padding: 80px 0; background: #f8f9fa; }
+
+  .sp-benefits-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .sp-benefits-header { text-align: center; margin-bottom: 48px; }
+
+  .sp-benefits-header h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #1a1c1e;
+    margin-bottom: 16px;
+  }
+
+  .sp-benefits-header p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #404751;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sp-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .sp-benefit-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+  }
+
+  .sp-benefit-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+
+  .sp-benefit-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #d1e4ff;
+    border: 2px solid #0071bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .sp-benefit-card:hover .sp-benefit-icon { transform: scale(1.1); }
+
+  .sp-benefit-icon .material-symbols-outlined { font-size: 28px; color: #0071bc; }
+
+  .sp-benefit-card h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1a1c1e;
+    margin-bottom: 12px;
+  }
+
+  .sp-benefit-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #404751;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .sp-benefits-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-benefits-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1024px) {
+    .sp-benefits-header h2 { font-size: 28px; }
+  }
+
+  @media (max-width: 768px) {
+    .sp-benefits-container { padding: 0 16px; }
+    .sp-benefits-header { margin-bottom: 32px; }
+    .sp-benefits-header h2 { font-size: 28px; }
+    .sp-benefit-card { padding: 24px; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-benefits-header h2 { font-size: 26px; }
+    .sp-benefits-header p { font-size: 15px; }
+    .sp-benefit-icon { width: 56px; height: 56px; }
+    .sp-benefit-icon .material-symbols-outlined { font-size: 24px; }
+    .sp-benefit-card h3 { font-size: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-benefit-card { padding: 16px; border-radius: 12px; }
+    .sp-benefits-header h2 { font-size: 24px; }
+    .sp-benefit-card h3 { font-size: 15px; margin-bottom: 8px; }
+    .sp-benefit-card p { font-size: 13px; }
+  }
+
+  @media (max-width: 360px) { .sp-benefits-header h2 { font-size: 22px; } }
+</style>

@@ -1,0 +1,138 @@
+---
+interface Props {
+  title: string;
+  type: string;
+  location: string;
+  hours: string;
+  summary: string;
+  slug: string;
+}
+const { title, type, location, hours, summary, slug } = Astro.props;
+---
+<article class="sp-job-card">
+  <div class="sp-job-info">
+    <span class="sp-job-badge">{type}</span>
+    <h3>{title}</h3>
+    <p>{summary}</p>
+    <div class="sp-job-meta">
+      <span>
+        <span class="material-symbols-outlined">location_on</span>
+        {location}
+      </span>
+      <span>
+        <span class="material-symbols-outlined">schedule</span>
+        {hours}
+      </span>
+    </div>
+  </div>
+  <div class="sp-job-apply">
+    <a href={`/karriere/jobs/${slug}`} class="sp-apply-btn">
+      Jetzt bewerben
+      <span class="material-symbols-outlined">arrow_forward</span>
+    </a>
+  </div>
+</article>
+
+<style>
+  .sp-job-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .sp-job-card:hover { transform: translateX(8px); box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+
+  .sp-job-info { flex: 1; }
+
+  .sp-job-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #d1e4ff;
+    color: #00497c;
+    border-radius: 9999px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .sp-job-info h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1a1c1e;
+    margin-bottom: 8px;
+  }
+
+  .sp-job-info p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #404751;
+    margin: 0;
+  }
+
+  .sp-job-meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #717882;
+  }
+
+  .sp-job-meta span { display: flex; align-items: center; gap: 4px; }
+  .sp-job-meta .material-symbols-outlined { font-size: 16px; color: #0071bc; }
+
+  .sp-job-apply { flex-shrink: 0; }
+
+  .sp-apply-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #0071bc;
+    color: white;
+    border-radius: 9999px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 113, 188, 0.2);
+  }
+
+  .sp-apply-btn:hover { background: #005894; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0, 113, 188, 0.3); }
+  .sp-apply-btn .material-symbols-outlined { font-size: 18px; }
+
+  @media (max-width: 768px) {
+    .sp-job-card { flex-direction: column; align-items: flex-start; padding: 24px; }
+    .sp-job-apply { width: 100%; }
+    .sp-apply-btn { width: 100%; justify-content: center; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-job-card { padding: 20px; }
+    .sp-job-info h3 { font-size: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-job-card { padding: 16px; border-radius: 12px; margin-bottom: 16px; }
+    .sp-job-info h3 { font-size: 18px; }
+    .sp-job-info p { font-size: 13px; }
+    .sp-job-meta { flex-direction: column; gap: 8px; }
+    .sp-apply-btn { padding: 10px 20px; font-size: 13px; }
+  }
+</style>

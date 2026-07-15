@@ -1,0 +1,64 @@
+---
+const materials = [
+  { name: 'Wolfin', category: 'Flachdach', desc: 'Abdichtungssysteme für Flachdächer' },
+  { name: 'Kemperol', category: 'Flachdach', desc: 'Beschichtungssysteme, TÜV-zertifiziert' },
+  { name: 'KME-Kupfer', category: 'Spengler', desc: 'Hochwertiges Kupfer für Spenglerarbeiten' },
+  { name: 'Rheinzink', category: 'Spengler', desc: 'Zinkblech für Dach und Fassade' },
+  { name: 'Prefalz', category: 'Spengler', desc: 'Aluminium-Blech für langlebige Lösungen' },
+  { name: 'Uginox', category: 'Spengler', desc: 'Edelstahl-Optik zu vernünftigen Kosten' },
+  { name: 'Erlus', category: 'Dachdecker', desc: 'Tonziegel für klassische Dächer' },
+  { name: 'Braas', category: 'Dachdecker', desc: 'Betonsteine und Ziegel' },
+  { name: 'Creaton', category: 'Dachdecker', desc: 'Premium-Tondachziegel' },
+];
+---
+<section class="materials-section">
+  <div class="section-inner">
+    <h2>Marken & Materialien</h2>
+    <p class="section-sub">Wir arbeiten ausschließlich mit hochwertigen Materialien namhafter Hersteller.</p>
+    <div class="materials-grid">
+      {materials.map((m) => (
+        <div class="material-card">
+          <span class="material-category">{m.category}</span>
+          <h3>{m.name}</h3>
+          <p>{m.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .materials-section {
+    padding: 80px 32px;
+    background: var(--surface-container-low, #f3f4f5);
+  }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  h2 { font-size: clamp(26px, 4vw, 36px); margin: 0 0 12px; color: var(--on-surface, #191c1d); }
+  .section-sub { font-size: 17px; color: var(--on-surface-variant, #404751); margin: 0 0 40px; }
+  .materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  .material-card {
+    padding: 20px;
+    background: var(--glass-bg-medium, rgba(255,255,255,0.75));
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-light, rgba(255,255,255,0.5));
+    border-radius: var(--glass-radius-large, 16px);
+    transition: all 0.3s;
+  }
+  .material-card:hover { transform: translateY(-2px); border-color: var(--glass-border-accent, rgba(0,113,188,0.3)); }
+  .material-category {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary, #0071bc);
+    margin-bottom: 6px;
+    display: block;
+  }
+  h3 { font-size: 16px; margin: 0 0 6px; color: var(--on-surface, #191c1d); }
+  p { font-size: 13px; color: var(--on-surface-variant, #404751); margin: 0; line-height: 1.5; }
+  @media (max-width: 640px) { .materials-section { padding: 60px 16px; } }
+</style>

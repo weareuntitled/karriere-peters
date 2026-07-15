@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: 'light' | 'medium' | 'heavy' | 'tint';
+  class?: string;
+}
+const { variant = 'medium', class: className = '' } = Astro.props;
+---
+<div class:list={['glass-card', `glass-${variant}`, className]}>
+  <slot />
+</div>
+
+<style>
+  .glass-card {
+    background: var(--glass-bg-medium, rgba(255,255,255,0.75));
+    backdrop-filter: blur(var(--glass-blur-medium, 12px));
+    -webkit-backdrop-filter: blur(var(--glass-blur-medium, 12px));
+    border: 1px solid var(--glass-border-light, rgba(255,255,255,0.5));
+    border-radius: var(--glass-radius-large, 16px);
+    padding: 24px;
+    box-shadow: var(--glass-shadow-medium, 0 8px 32px rgba(0,113,188,0.08));
+    transition: all var(--glass-transition-medium, 0.3s);
+    position: relative;
+    overflow: hidden;
+  }
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: inherit;
+  }
+  .glass-card:hover {
+    box-shadow: var(--glass-shadow-heavy, 0 20px 40px rgba(0,113,188,0.05));
+    transform: translateY(-4px);
+    border-color: var(--glass-border-accent, rgba(0,113,188,0.3));
+  }
+  .glass-light { background: var(--glass-bg-light, rgba(255,255,255,0.7)); backdrop-filter: blur(8px); }
+  .glass-heavy { background: var(--glass-bg-heavy, rgba(255,255,255,0.85)); backdrop-filter: blur(20px); }
+  .glass-tint { background: var(--glass-tint-primary, rgba(0,113,188,0.1)); border-color: var(--glass-border-accent); }
+</style>

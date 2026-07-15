@@ -1,0 +1,198 @@
+---
+const services = [
+  { icon: 'roofing', title: 'Dachdeckerei', desc: 'Langlebige und ästhetisch anspruchsvolle Dacheindeckungen in Metall. Von Stehfalz bis zur komplexen Gaubenverkleidung.', link: '/dienstleistungen' },
+  { icon: 'apartment', title: 'Fassadenbau', desc: 'Moderne Metallfassaden als architektonisches Statement. Witterungsbeständig, wartungsarm und energetisch optimiert.', link: '/dienstleistungen' },
+  { icon: 'water_drop', title: 'Regenrinnen', desc: 'Zuverlässige Dachentwässerungssysteme auf Maß. Wir planen und installieren Rinnen und Fallrohre für sichere Wasserableitung.', link: '/dienstleistungen' },
+  { icon: 'precision_manufacturing', title: 'Sonderanfertigungen', desc: 'Maßgeschneiderte Lösungen für komplexe architektonische Herausforderungen. Höchste Präzision aus unserer eigenen Werkstatt.', link: '/dienstleistungen' },
+  { icon: 'foundation', title: 'Kemperol-Abdichtung', desc: 'Zertifizierte Flüssigfolienabdichtung für Flachdächer und Balkone. TÜV-geprüfte Qualität vom Fachbetrieb.', link: '/dienstleistungen' },
+  { icon: 'handyman', title: 'Reparatur & Service', desc: 'Schnelle Hilfe bei Undichtigkeiten und Sturmschäden. Wir sind Ihr zuverlässiger Partner für Instandsetzung.', link: '/dienstleistungen' },
+];
+---
+<section class="sp-services-section">
+  <div class="sp-services-container">
+    <div class="sp-services-header">
+      <h2>Unsere Kernleistungen</h2>
+      <p>Höchste Verarbeitungsqualität und langlebige Materialien. Wir bieten maßgeschneiderte Lösungen für Ihr Bauvorhaben.</p>
+    </div>
+    <div class="sp-services-grid">
+      {services.map((s) => (
+        <a href={s.link} class="sp-service-card">
+          <div class="sp-service-icon">
+            <span class="material-symbols-outlined">{s.icon}</span>
+          </div>
+          <h3>{s.title}</h3>
+          <p>{s.desc}</p>
+          <span class="sp-service-link">
+            Mehr erfahren
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-services-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+  }
+
+  .sp-services-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .sp-services-header {
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sp-services-header h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #1a1c1e;
+    margin-bottom: 16px;
+  }
+
+  .sp-services-header p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #404751;
+  }
+
+  .sp-services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .sp-service-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 32px;
+    box-shadow: 0 20px 40px rgba(0, 113, 188, 0.05);
+    transition: all 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+
+  .sp-service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom right, #d1e4ff 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .sp-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 113, 188, 0.1);
+  }
+
+  .sp-service-card:hover::before { opacity: 1; }
+
+  .sp-service-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    background: #f9f9fc;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s ease;
+  }
+
+  .sp-service-card:hover .sp-service-icon { transform: scale(1.1); }
+
+  .sp-service-icon .material-symbols-outlined {
+    font-size: 32px;
+    color: #0071bc;
+  }
+
+  .sp-service-card h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: #1a1c1e;
+    margin-bottom: 16px;
+  }
+
+  .sp-service-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #404751;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .sp-service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0071bc;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .sp-service-link:hover { gap: 12px; }
+  .sp-service-link .material-symbols-outlined { font-size: 18px; }
+
+  @media (max-width: 1024px) {
+    .sp-services-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .sp-service-card { padding: 24px; }
+  }
+
+  @media (max-width: 768px) {
+    .sp-services-grid { grid-template-columns: 1fr; gap: 16px; }
+    .sp-service-card { padding: 24px; }
+    .sp-services-header h2 { font-size: 28px; }
+    .sp-services-header p { font-size: 15px; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-services-container { padding: 0 16px; }
+    .sp-service-card { padding: 24px 20px; border-radius: 20px; }
+    .sp-service-icon { width: 60px; height: 60px; border-radius: 14px; margin-bottom: 16px; }
+    .sp-service-icon .material-symbols-outlined { font-size: 30px; }
+    .sp-service-card h3 { font-size: 20px; margin-bottom: 12px; }
+    .sp-service-card p { font-size: 14px; margin-bottom: 16px; }
+    .sp-service-link { padding: 8px 0; min-height: 44px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-service-card { padding: 20px 16px; border-radius: 16px; }
+    .sp-services-header { margin-bottom: 24px; }
+    .sp-services-header h2 { font-size: 24px; }
+    .sp-services-header p { font-size: 14px; }
+    .sp-service-icon { width: 52px; height: 52px; }
+    .sp-service-icon .material-symbols-outlined { font-size: 26px; }
+    .sp-service-card h3 { font-size: 18px; }
+    .sp-service-link { font-size: 12px; min-height: 44px; }
+  }
+</style>

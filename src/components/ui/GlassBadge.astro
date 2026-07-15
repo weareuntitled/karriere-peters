@@ -1,0 +1,25 @@
+---
+interface Props {
+  class?: string;
+}
+---
+<span class:list={['glass-badge', Astro.props.class]}>
+  <slot />
+</span>
+
+<style>
+  .glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--glass-tint-primary, rgba(0,113,188,0.1));
+    border: 1px solid var(--glass-border-accent, rgba(0,113,188,0.15));
+    border-radius: var(--glass-radius-capsule, 9999px);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #00497c;
+  }
+</style>

@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/layout/Navbar.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+<BaseLayout title="Kontakt" description="Kontaktieren Sie Spenglerei Peters in Kühbach. Tel., E-Mail, Öffnungszeiten und Kontaktformular.">
+  <Navbar />
+  <main>
+    <section class="contact-hero">
+      <div class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="" aria-hidden="true" />
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="hero-content">
+        <span class="hero-badge">Kontakt</span>
+        <h1>Sprechen Sie uns an</h1>
+        <p>Ob Anfrage, Beratung oder Termin – wir freuen uns von Ihnen zu hören.</p>
+      </div>
+    </section>
+
+    <section class="sp-info-section">
+      <div class="sp-info-container">
+        <div class="sp-info-grid">
+          <div class="sp-info-card">
+            <div class="sp-info-icon">
+              <span class="material-symbols-outlined">location_on</span>
+            </div>
+            <h3>Adresse</h3>
+            <p>Dieselstraße 10<br />86556 Kühbach</p>
+          </div>
+          <div class="sp-info-card">
+            <div class="sp-info-icon">
+              <span class="material-symbols-outlined">phone</span>
+            </div>
+            <h3>Telefon</h3>
+            <p>0 82 57 / XX XX XX</p>
+          </div>
+          <div class="sp-info-card">
+            <div class="sp-info-icon">
+              <span class="material-symbols-outlined">mail</span>
+            </div>
+            <h3>E-Mail</h3>
+            <p>info@spenglerei-peters.de</p>
+          </div>
+          <div class="sp-info-card">
+            <div class="sp-info-icon">
+              <span class="material-symbols-outlined">schedule</span>
+            </div>
+            <h3>Öffnungszeiten</h3>
+            <p>Mo-Do: 08:00-17:00<br />Fr: 08:00-14:00</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp-forms-section">
+      <div class="sp-forms-container">
+        <div class="sp-forms-header">
+          <h2>Nachricht senden</h2>
+          <p>Nutzen Sie unser Kontaktformular für detaillierte Anfragen.</p>
+        </div>
+        <div class="sp-forms-grid">
+          <div class="sp-form-card">
+            <h3>
+              <span class="material-symbols-outlined">chat</span>
+              Chatbot (Typebot)
+            </h3>
+            <p>Interaktive Beratung durch unseren Chatbot – schnell und unkompliziert.</p>
+            <div class="sp-typebot-container">
+              <div id="typebot-container"></div>
+            </div>
+          </div>
+          <div class="sp-form-card">
+            <h3>
+              <span class="material-symbols-outlined">mail</span>
+              Klassisches Formular
+            </h3>
+            <p>Nutzen Sie unser Kontaktformular für detaillierte Anfragen.</p>
+            <form class="sp-cf7-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="wpcf7-form-control-wrap">
+                <input type="text" name="name" placeholder="Ihr Name" required />
+              </div>
+              <div class="wpcf7-form-control-wrap">
+                <input type="email" name="email" placeholder="ihre@email.de" required />
+              </div>
+              <div class="wpcf7-form-control-wrap">
+                <input type="tel" name="phone" placeholder="Telefon (optional)" />
+              </div>
+              <div class="wpcf7-form-control-wrap">
+                <select name="subject" required>
+                  <option value="">Bitte wählen</option>
+                  <option value="anfrage">Allgemeine Anfrage</option>
+                  <option value="angebot">Angebot anfordern</option>
+                  <option value="beratung">Beratung</option>
+                  <option value="karriere">Karriere / Bewerbung</option>
+                  <option value="sonstiges">Sonstiges</option>
+                </select>
+              </div>
+              <div class="wpcf7-form-control-wrap">
+                <textarea name="message" rows="5" placeholder="Wie können wir helfen?" required></textarea>
+              </div>
+              <input type="submit" value="Absenden" />
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sp-map-section">
+      <div class="sp-map-container">
+        <div class="sp-map-header">
+          <h2>Anfahrt</h2>
+          <p>Besuchen Sie uns in Kühbach – wir freuen uns auf Sie.</p>
+        </div>
+        <div class="sp-map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2593.123456789!2d11.1234567!3d48.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zVGHFnZlgcnNkZmVy!5e0!3m2!1sde!2sde!4v1234567890"
+            width="100%"
+            height="500"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Standort Kühbach">
+          </iframe>
+          <div class="sp-map-overlay">
+            <h3>Spenglermeisterbetrieb Peters GmbH</h3>
+            <div class="sp-map-divider"></div>
+            <p>
+              <span class="material-symbols-outlined">location_on</span>
+              Dieselstraße 10, 86556 Kühbach
+            </p>
+            <p>
+              <span class="material-symbols-outlined">schedule</span>
+              Mo-Do 08:00-17:00, Fr 08:00-14:00
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .contact-hero {
+    position: relative;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 32px 80px;
+  }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(248,249,250,0.95) 0%, rgba(248,249,250,0.8) 100%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 640px; }
+  .hero-badge {
+    display: inline-block; padding: 6px 16px;
+    background: rgba(0,113,188,0.1);
+    border: 1px solid rgba(0,113,188,0.15);
+    border-radius: 9999px; font-size: 13px; font-weight: 600;
+    color: #0071bc; margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 700; margin: 0 0 16px; color: #1a1c1e; }
+  p { font-size: 18px; color: #404751; margin: 0; line-height: 1.7; }
+
+  /* Info Cards */
+  .sp-info-section { padding: 80px 32px; }
+  .sp-info-container { max-width: 1280px; margin: 0 auto; }
+  .sp-info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .sp-info-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+    transition: all 0.3s ease;
+  }
+  .sp-info-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+  .sp-info-icon {
+    width: 56px; height: 56px; border-radius: 50%;
+    background: #d1e4ff;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    transition: transform 0.3s ease;
+  }
+  .sp-info-card:hover .sp-info-icon { transform: scale(1.1); }
+  .sp-info-icon .material-symbols-outlined { font-size: 24px; color: #0071bc; }
+  .sp-info-card h3 { font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600; color: #1a1c1e; margin-bottom: 8px; }
+  .sp-info-card p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; color: #404751; margin: 0; }
+
+  /* Forms */
+  .sp-forms-section { padding: 0 32px 80px; background: #f8f9fa; }
+  .sp-forms-container { max-width: 1280px; margin: 0 auto; }
+  .sp-forms-header { text-align: center; margin-bottom: 48px; }
+  .sp-forms-header h2 { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 600; color: #1a1c1e; margin-bottom: 16px; }
+  .sp-forms-header p { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #404751; max-width: 600px; margin: 0 auto; }
+  .sp-forms-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .sp-form-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+    transition: all 0.3s ease;
+  }
+  .sp-form-card:hover { box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+  .sp-form-card h3 { font-family: 'DM Sans', sans-serif; font-size: 20px; font-weight: 600; color: #1a1c1e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+  .sp-form-card h3 .material-symbols-outlined { font-size: 24px; color: #0071bc; }
+  .sp-form-card p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; color: #404751; margin-bottom: 24px; }
+  .sp-typebot-container { width: 100%; height: 400px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(0, 113, 188, 0.15); }
+  .sp-cf7-form .wpcf7-form-control-wrap { display: block; margin-bottom: 16px; }
+  .sp-cf7-form input, .sp-cf7-form textarea, .sp-cf7-form select {
+    width: 100%; padding: 12px 16px;
+    border: 1px solid #c0c7d3; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px;
+    transition: all 0.3s ease;
+    background: rgba(255,255,255,0.5);
+  }
+  .sp-cf7-form input:focus, .sp-cf7-form textarea:focus, .sp-cf7-form select:focus {
+    border-color: #0071bc; box-shadow: 0 0 0 3px rgba(0, 113, 188, 0.1); outline: none;
+  }
+  .sp-cf7-form input[type="submit"] {
+    background: #0071bc; color: white; border: none;
+    padding: 14px 32px; border-radius: 9999px;
+    font-weight: 600; letter-spacing: 0.05em; cursor: pointer;
+    transition: all 0.3s ease; width: 100%;
+  }
+  .sp-cf7-form input[type="submit"]:hover { background: #005894; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0, 113, 188, 0.3); }
+
+  /* Map */
+  .sp-map-section { padding: 0 32px 80px; }
+  .sp-map-container { max-width: 1280px; margin: 0 auto; }
+  .sp-map-header { text-align: center; margin-bottom: 48px; }
+  .sp-map-header h2 { font-family: 'DM Sans', sans-serif; font-size: 32px; font-weight: 600; color: #1a1c1e; margin-bottom: 16px; }
+  .sp-map-header p { font-family: 'DM Sans', sans-serif; font-size: 16px; color: #404751; max-width: 600px; margin: 0 auto; }
+  .sp-map-wrapper { position: relative; width: 100%; height: 500px; border-radius: 24px; overflow: hidden; border: 1px solid rgba(0, 113, 188, 0.15); box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08); }
+  .sp-map-wrapper iframe { width: 100%; height: 100%; border: none; }
+  .sp-map-overlay {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 113, 188, 0.15); border-radius: 16px;
+    padding: 24px; box-shadow: 0 12px 40px rgba(0, 113, 188, 0.08);
+    transform: translateY(100%); opacity: 0; transition: all 0.3s ease;
+  }
+  .sp-map-wrapper:hover .sp-map-overlay { transform: translateY(0); opacity: 1; }
+  .sp-map-overlay h3 { font-family: 'DM Sans', sans-serif; font-size: 18px; font-weight: 600; color: #1a1c1e; margin-bottom: 12px; }
+  .sp-map-divider { width: 40px; height: 2px; background: linear-gradient(to right, #0071bc, transparent); margin: 16px 0; }
+  .sp-map-overlay p { font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.6; color: #404751; margin: 0 0 8px; display: flex; align-items: center; gap: 8px; }
+  .sp-map-overlay p:last-child { margin-bottom: 0; }
+  .sp-map-overlay .material-symbols-outlined { font-size: 18px; color: #0071bc; }
+
+  @media (max-width: 1024px) {
+    .sp-info-grid { grid-template-columns: repeat(2, 1fr); }
+    .sp-forms-grid { grid-template-columns: 1fr; }
+    .sp-map-wrapper { height: 400px; }
+  }
+
+  @media (max-width: 768px) {
+    .sp-info-section, .sp-forms-section, .sp-map-section { padding: 60px 16px; }
+    .sp-info-container, .sp-forms-container, .sp-map-container { padding: 0; }
+    .sp-map-wrapper { height: 350px; border-radius: 16px; }
+    .sp-map-overlay { bottom: 16px; left: 16px; right: 16px; padding: 20px; border-radius: 12px; }
+    .contact-hero { padding: 100px 16px 60px; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-info-grid { grid-template-columns: 1fr; }
+    .sp-info-card { display: flex; align-items: center; gap: 16px; text-align: left; padding: 16px; }
+    .sp-info-icon { width: 48px; height: 48px; margin: 0; flex-shrink: 0; }
+    .sp-info-icon .material-symbols-outlined { font-size: 20px; }
+    .sp-typebot-container { height: 350px; }
+    .sp-map-wrapper { height: 250px; border-radius: 12px; }
+    .sp-map-overlay { transform: translateY(0); opacity: 1; position: relative; bottom: auto; left: auto; right: auto; margin-top: 16px; border-radius: 12px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-forms-header h2, .sp-info-card h3 { font-size: 24px; }
+    .sp-forms-header p, .sp-info-card p { font-size: 13px; }
+  }
+</style>

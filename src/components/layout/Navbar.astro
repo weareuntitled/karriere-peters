@@ -1,0 +1,259 @@
+---
+interface Props {
+  variant?: 'full' | 'minimal';
+}
+const { variant = 'full' } = Astro.props;
+const currentPath = Astro.url.pathname;
+const isKarriere = currentPath.startsWith('/karriere');
+---
+<header class:list={['navbar', { minimal: variant === 'minimal' }]}>
+  <a href="/" class="navbar-logo">
+    <img src="/images/logoheader1000.jpg" alt="Spenglerei Peters" width="160" />
+  </a>
+
+  {variant === 'full' && (
+    <>
+      <nav class="navbar-links">
+        <a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
+        <a href="/ueber-uns" class={currentPath === '/ueber-uns' ? 'active' : ''}>Über uns</a>
+        <a href="/dienstleistungen">Dienstleistungen</a>
+        <a href="/projekte">Projekte</a>
+        <a href="/karriere" class={isKarriere ? 'active' : ''}>Karriere</a>
+        <a href="/kontakt">Kontakt</a>
+      </nav>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close-btn" aria-label="Menü schließen">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <nav class="mobile-links">
+          <a href="/">Home</a>
+          <a href="/ueber-uns">Über uns</a>
+          <a href="/dienstleistungen">Dienstleistungen</a>
+          <a href="/projekte">Projekte</a>
+          <a href="/karriere">Karriere</a>
+          <a href="/kontakt">Kontakt</a>
+        </nav>
+        <a href="/karriere" class="mob-apply-btn">
+          Jetzt bewerben
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </>
+  )}
+
+  {variant === 'minimal' && (
+    <>
+      <nav class="navbar-links">
+        <a href="/karriere">Karriere</a>
+        <a href="/karriere/team">Team</a>
+        <a href="/ueber-uns">Hauptseite</a>
+      </nav>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menü öffnen">
+        <span class="material-symbols-outlined">menu</span>
+      </button>
+      <div class="mobile-menu" id="mobile-menu">
+        <button class="mobile-close" id="mobile-close-btn" aria-label="Menü schließen">
+          <span class="material-symbols-outlined">close</span>
+        </button>
+        <nav class="mobile-links">
+          <a href="/karriere">Karriere</a>
+          <a href="/karriere/team">Team</a>
+          <a href="/ueber-uns">Hauptseite</a>
+        </nav>
+        <a href="/karriere" class="mob-apply-btn">
+          Jetzt bewerben
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+    </>
+  )}
+</header>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    background: var(--glass-bg-heavy, rgba(255,255,255,0.85));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border-light, rgba(255,255,255,0.5));
+    box-shadow: var(--glass-shadow-heavy, 0 20px 40px rgba(0,113,188,0.05));
+  }
+  .navbar-logo img {
+    height: 40px;
+    width: auto;
+  }
+  .navbar-links {
+    display: flex;
+    gap: 32px;
+  }
+  .navbar-links a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--on-surface, #191c1d);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .navbar-links a:hover,
+  .navbar-links a.active {
+    color: var(--primary, #0071bc);
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    border-radius: 0 !important;
+    cursor: pointer;
+    padding: 8px;
+    color: #0071bc;
+    z-index: 200;
+    width: auto;
+    min-width: 0;
+  }
+  .hamburger .material-symbols-outlined {
+    font-size: 32px;
+    font-variation-settings: 'FILL' 0, 'wght' 400;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 150;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 32px 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    overflow-y: auto;
+  }
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  .mobile-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    background: #0071bc;
+    border: none;
+    border-radius: 50% !important;
+    cursor: pointer;
+    padding: 8px;
+    color: white;
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 113, 188, 0.3);
+  }
+  .mobile-close .material-symbols-outlined {
+    font-size: 24px;
+    color: white;
+  }
+
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    flex: 1;
+    justify-content: center;
+  }
+  .mobile-links a {
+    display: flex;
+    align-items: center;
+    padding: 14px 0;
+    font-size: 1.0625rem;
+    border-bottom: 1px solid var(--outline-variant, #c0c7d3);
+    min-height: 48px;
+    color: var(--on-surface, #191c1d);
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .mobile-links a:last-child {
+    border-bottom: none;
+  }
+  .mobile-links a:hover {
+    color: var(--primary, #0071bc);
+  }
+
+  .mob-apply-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    padding: 16px 32px;
+    background: #0071bc !important;
+    color: white !important;
+    border-radius: 9999px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 113, 188, 0.25);
+    margin-top: auto;
+  }
+  .mob-apply-btn:hover {
+    background: #005894 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 113, 188, 0.35);
+  }
+  .mob-apply-btn .material-symbols-outlined {
+    font-size: 20px;
+    color: white !important;
+  }
+
+  @media (max-width: 480px) {
+    .mobile-menu { padding: 72px 20px 32px; }
+    .mobile-links a { font-size: 20px; padding: 10px 20px; }
+    .mob-apply-btn { padding: 14px 24px; font-size: 14px; }
+  }
+
+  @media (max-width: 768px) {
+    .navbar { padding: 12px 16px; }
+    .navbar-links { display: none; }
+    .hamburger { display: block; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('hamburger-btn');
+  const closeBtn = document.getElementById('mobile-close-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => menu.classList.add('open'));
+    if (closeBtn) closeBtn.addEventListener('click', () => menu.classList.remove('open'));
+    menu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => menu.classList.remove('open'));
+    });
+  }
+</script>

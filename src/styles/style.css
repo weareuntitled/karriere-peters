@@ -1,0 +1,849 @@
+/*
+Theme Name:   Induxo Child - Spenglerei Peters
+Theme URI:    https://spenglerei-peters.de
+Description:  Induxo Child Theme with Liquid Glass Design System (iOS 26 Adaptation)
+Author:       Spenglerei Peters
+Author URI:   https://spenglerei-peters.de
+Template:     induxo
+Version:      2.0.0 (Liquid Glass System)
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:  induxo-child
+*/
+
+/* ===========================================
+   LIQUID GLASS DESIGN SYSTEM - iOS 26 Adaptation
+   =========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+:root {
+    /* === Core Design Tokens === */
+    --surface: #f8f9fa;
+    --surface-dim: #d9dadb;
+    --surface-bright: #f8f9fa;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f3f4f5;
+    --surface-container: #edeeef;
+    --surface-container-high: #e7e8e9;
+    --surface-container-highest: #e1e3e4;
+    --on-surface: #191c1d;
+    --on-surface-variant: #404751;
+    --outline: #717882;
+    --outline-variant: #c0c7d3;
+    --primary: #0071bc;
+    --primary-dark: #005894;
+    --on-primary: #ffffff;
+    --primary-container: #d1e4ff;
+    --on-primary-container: #001d36;
+    --secondary: #566066;
+    --on-secondary: #ffffff;
+    --secondary-container: #dae4ec;
+    --on-secondary-container: #5c666c;
+    --background: #f8f9fa;
+    --on-background: #191c1d;
+    
+    /* === Typography === */
+    --font-family: 'DM Sans', sans-serif;
+    --h1-size: 48px;
+    --h2-size: 32px;
+    --h3-size: 24px;
+    --body-lg-size: 18px;
+    --body-md-size: 16px;
+    --label-sm-size: 14px;
+    
+    /* === Spacing === */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 48px;
+    
+    /* === Border Radius === */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+    
+    /* === Liquid Glass Properties === */
+    --glass-blur-light: 8px;
+    --glass-blur-medium: 12px;
+    --glass-blur-heavy: 20px;
+    --glass-blur-extreme: 40px;
+    
+    --glass-bg-light: rgba(255, 255, 255, 0.7);
+    --glass-bg-medium: rgba(255, 255, 255, 0.75);
+    --glass-bg-heavy: rgba(255, 255, 255, 0.85);
+    --glass-bg-extreme: rgba(255, 255, 255, 0.95);
+    
+    --glass-border-light: rgba(255, 255, 255, 0.5);
+    --glass-border-medium: rgba(255, 255, 255, 0.7);
+    --glass-border-accent: rgba(0, 113, 188, 0.15);
+    --glass-border-accent-hover: rgba(0, 113, 188, 0.3);
+    
+    --glass-shadow-light: 0 4px 16px rgba(0, 113, 188, 0.08);
+    --glass-shadow-medium: 0 8px 32px rgba(0, 113, 188, 0.08);
+    --glass-shadow-heavy: 0 20px 40px rgba(0, 113, 188, 0.05);
+    --glass-shadow-extreme: 0 30px 60px rgba(0, 113, 188, 0.1);
+    
+    --glass-transition-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --glass-transition-medium: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    --glass-transition-slow: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --glass-transition-morph: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    
+    --glass-hover-lift: -4px;
+    --glass-hover-lift-large: -8px;
+    --glass-active-scale: 0.98;
+    
+    --glass-radius-small: 8px;
+    --glass-radius-medium: 12px;
+    --glass-radius-large: 16px;
+    --glass-radius-xl: 24px;
+    --glass-radius-capsule: 9999px;
+    --glass-radius-circle: 50%;
+    
+    --glass-tint-primary: rgba(0, 113, 188, 0.1);
+    --glass-tint-primary-strong: rgba(0, 113, 188, 0.2);
+    --glass-tint-primary-heavy: rgba(0, 113, 188, 0.3);
+}
+
+/* ===========================================
+   BASE TYPOGRAPHY
+   =========================================== */
+
+html {
+    font-family: var(--font-family);
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--on-surface);
+    background: var(--background);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: var(--font-family);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--on-surface);
+}
+
+h1, .h1 {
+    font-size: var(--h1-size);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+h2, .h2 {
+    font-size: var(--h2-size);
+}
+
+h3, .h3 {
+    font-size: var(--h3-size);
+}
+
+body, p, .body-lg, .body-md {
+    font-family: var(--font-family);
+    line-height: 1.6;
+}
+
+.body-lg {
+    font-size: var(--body-lg-size);
+}
+
+.body-md {
+    font-size: var(--body-md-size);
+}
+
+label, .label-sm {
+    font-family: var(--font-family);
+    font-size: var(--label-sm-size);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ===========================================
+   LIQUID GLASS - CORE MATERIAL
+   =========================================== */
+
+.glass {
+    background: var(--glass-bg-medium);
+    backdrop-filter: blur(var(--glass-blur-medium));
+    -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+    border: 1px solid var(--glass-border-light);
+    box-shadow: var(--glass-shadow-medium);
+    transition: all var(--glass-transition-medium);
+}
+
+.glass:hover {
+    box-shadow: var(--glass-shadow-heavy);
+    transform: translateY(var(--glass-hover-lift));
+}
+
+.glass:active {
+    transform: scale(var(--glass-active-scale));
+}
+
+.glass-light {
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+}
+
+.glass-heavy {
+    background: var(--glass-bg-heavy);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+}
+
+.glass-extreme {
+    background: var(--glass-bg-extreme);
+    backdrop-filter: blur(var(--glass-blur-extreme));
+    -webkit-backdrop-filter: blur(var(--glass-blur-extreme));
+}
+
+.glass-tint-primary {
+    background: var(--glass-tint-primary);
+    border-color: var(--glass-border-accent);
+}
+
+.glass-tint-primary:hover {
+    background: var(--glass-tint-primary-strong);
+    border-color: var(--glass-border-accent-hover);
+}
+
+/* ===========================================
+   LIQUID GLASS - BUTTONS (iOS 26 Style)
+   =========================================== */
+
+button, .btn,
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"],
+.elementor-button {
+    font-family: var(--font-family) !important;
+    border-radius: var(--glass-radius-capsule) !important;
+    font-weight: 500;
+    transition: all var(--glass-transition-medium);
+}
+
+.btn-primary,
+.elementor-button--default,
+button[type="submit"],
+.glass-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--primary) !important;
+    color: var(--on-primary) !important;
+    border: none !important;
+    border-radius: var(--glass-radius-capsule) !important;
+    font-family: var(--font-family) !important;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--glass-transition-medium);
+    box-shadow: var(--glass-shadow-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before,
+.glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), transparent 50%);
+    pointer-events: none;
+    border-radius: var(--glass-radius-capsule) var(--glass-radius-capsule) 0 0;
+}
+
+.btn-primary:hover,
+.elementor-button--default:hover,
+.glass-button:hover {
+    background: var(--primary-dark) !important;
+    box-shadow: var(--glass-shadow-medium);
+    transform: translateY(var(--glass-hover-lift));
+}
+
+.glass-button:active {
+    transform: scale(var(--glass-active-scale));
+}
+
+.btn-secondary,
+.elementor-button--outline,
+.glass-button-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background: var(--glass-bg-light) !important;
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--glass-border-accent) !important;
+    color: var(--primary) !important;
+    border-radius: var(--glass-radius-capsule) !important;
+    font-family: var(--font-family) !important;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all var(--glass-transition-medium);
+}
+
+.btn-secondary:hover,
+.glass-button-secondary:hover {
+    background: var(--glass-tint-primary) !important;
+    border-color: var(--glass-border-accent-hover) !important;
+}
+
+/* ===========================================
+   LIQUID GLASS - CARDS
+   =========================================== */
+
+.card,
+.elementor-element .elementor-widget-container,
+.elementor-widget-image-box .elementor-image-box-content,
+.service-card,
+.project-card,
+.glass-card {
+    background: var(--glass-bg-medium) !important;
+    backdrop-filter: blur(var(--glass-blur-medium));
+    -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+    border: 1px solid var(--glass-border-light) !important;
+    border-radius: var(--glass-radius-large) !important;
+    padding: var(--spacing-lg) !important;
+    box-shadow: var(--glass-shadow-medium);
+    transition: all var(--glass-transition-medium);
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before,
+.glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%);
+    pointer-events: none;
+    border-radius: var(--glass-radius-large);
+}
+
+.card:hover,
+.service-card:hover,
+.project-card:hover,
+.glass-card:hover {
+    box-shadow: var(--glass-shadow-heavy);
+    transform: translateY(var(--glass-hover-lift-large));
+    border-color: var(--glass-border-accent) !important;
+}
+
+/* ===========================================
+   LIQUID GLASS - INPUT FIELDS
+   =========================================== */
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea,
+select,
+.form-control,
+.wpcf7-form-control,
+.glass-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--outline-variant) !important;
+    border-radius: var(--glass-radius-medium) !important;
+    font-family: var(--font-family) !important;
+    font-size: 14px;
+    transition: all var(--glass-transition-fast);
+    color: var(--on-surface);
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus,
+.wpcf7-form-control:focus,
+.glass-input:focus {
+    outline: none;
+    border-color: var(--primary) !important;
+    background: var(--glass-bg-light);
+    box-shadow: 0 0 0 3px rgba(0, 113, 188, 0.1);
+}
+
+.glass-input::placeholder {
+    color: var(--outline);
+}
+
+/* ===========================================
+   LIQUID GLASS - NAVIGATION
+   =========================================== */
+
+.main-navigation,
+.site-header,
+.glass-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: var(--glass-bg-heavy);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border-bottom: 1px solid var(--glass-border-light);
+    box-shadow: var(--glass-shadow-heavy);
+    padding: 12px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all var(--glass-transition-medium);
+}
+
+.main-navigation a,
+.site-header a {
+    font-family: var(--font-family);
+    font-weight: 500;
+    color: var(--on-surface);
+    transition: color var(--glass-transition-fast);
+}
+
+.main-navigation a:hover,
+.site-header a:hover {
+    color: var(--primary);
+}
+
+/* ===========================================
+   LIQUID GLASS - FOOTER
+   =========================================== */
+
+.site-footer,
+.footer-widget-area {
+    background: var(--surface-container) !important;
+    color: var(--on-surface);
+    border-top: 1px solid var(--glass-border-light);
+}
+
+.site-footer a {
+    color: var(--primary);
+}
+
+/* ===========================================
+   LIQUID GLASS - BADGES
+   =========================================== */
+
+.glass-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: var(--glass-tint-primary);
+    border: 1px solid var(--glass-border-accent);
+    border-radius: var(--glass-radius-capsule);
+    font-family: var(--font-family);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #00497c;
+    transition: all var(--glass-transition-fast);
+}
+
+.glass-badge:hover {
+    background: var(--glass-tint-primary-strong);
+    border-color: var(--glass-border-accent-hover);
+}
+
+/* ===========================================
+   LIQUID GLASS - ICON CONTAINER
+   =========================================== */
+
+.glass-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--glass-radius-medium);
+    background: var(--glass-bg-light);
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--glass-border-light);
+    color: var(--primary);
+    transition: all var(--glass-transition-medium);
+}
+
+.glass-icon:hover {
+    transform: scale(1.1);
+    box-shadow: var(--glass-shadow-light);
+}
+
+.glass-icon.large {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--glass-radius-large);
+}
+
+/* ===========================================
+   LIQUID GLASS - OVERLAY
+   =========================================== */
+
+.glass-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    background: var(--glass-bg-heavy);
+    backdrop-filter: blur(var(--glass-blur-heavy));
+    -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+    border-top: 1px solid var(--glass-border-medium);
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all var(--glass-transition-medium);
+}
+
+.glass-card:hover .glass-overlay,
+.project-gallery-item:hover .glass-overlay {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ===========================================
+   LIQUID GLASS - ANIMATIONS
+   =========================================== */
+
+@keyframes glassReveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        filter: blur(4px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes glassFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.glass-animate-reveal {
+    animation: glassReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.glass-animate-float {
+    animation: glassFloat 3s ease-in-out infinite;
+}
+
+/* ===========================================
+   LIQUID GLASS - CONTAINER (for morphing)
+   =========================================== */
+
+.glass-container {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+}
+
+.glass-container.morphing > .glass,
+.glass-container.morphing > .glass-card {
+    margin: -12px;
+}
+
+/* ===========================================
+   RESPONSIVE - Enhanced Breakpoints
+   =========================================== */
+
+/* Tablet Landscape (1024px and below) */
+@media (max-width: 1024px) {
+    :root {
+        --h1-size: 42px;
+        --h2-size: 30px;
+        --spacing-xl: 40px;
+        --glass-blur-medium: 10px;
+        --glass-blur-heavy: 16px;
+    }
+    
+    .glass-card,
+    .card,
+    .service-card,
+    .project-card {
+        padding: 20px !important;
+    }
+}
+
+/* Tablet Portrait (768px and below) */
+@media (max-width: 768px) {
+    :root {
+        --h1-size: 36px;
+        --h2-size: 28px;
+        --h3-size: 20px;
+        --body-lg-size: 16px;
+        --spacing-lg: 16px;
+        --spacing-xl: 32px;
+        --glass-blur-medium: 8px;
+        --glass-blur-heavy: 12px;
+    }
+    
+    .glass-card,
+    .card,
+    .service-card,
+    .project-card {
+        padding: var(--spacing-md) !important;
+    }
+    
+    .main-navigation,
+    .site-header,
+    .glass-navbar {
+        padding: 0 16px;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    button[type="submit"],
+    .glass-button,
+    .glass-button-secondary {
+        width: 100%;
+        margin-bottom: 8px;
+        text-align: center;
+    }
+}
+
+/* Mobile Large (640px and below) */
+@media (max-width: 640px) {
+    :root {
+        --h1-size: 32px;
+        --h2-size: 26px;
+        --h3-size: 18px;
+        --body-lg-size: 15px;
+        --body-md-size: 14px;
+        --spacing-lg: 12px;
+        --spacing-xl: 24px;
+    }
+    
+    .glass-card,
+    .card,
+    .service-card,
+    .project-card {
+        margin-bottom: 16px;
+    }
+}
+
+/* Mobile Small (480px and below) */
+@media (max-width: 480px) {
+    :root {
+        --h1-size: 28px;
+        --h2-size: 24px;
+        --h3-size: 18px;
+        --body-lg-size: 14px;
+        --glass-blur-medium: 6px;
+        --glass-blur-heavy: 10px;
+    }
+    
+    .glass-card,
+    .card,
+    .service-card,
+    .project-card {
+        padding: 12px !important;
+        border-radius: var(--glass-radius-medium) !important;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    button[type="submit"],
+    .glass-button,
+    .glass-button-secondary {
+        padding: 12px 24px;
+        font-size: 13px;
+    }
+}
+
+/* Mobile Tiny (360px and below) */
+@media (max-width: 360px) {
+    :root {
+        --h1-size: 24px;
+        --h2-size: 20px;
+        --spacing-md: 12px;
+        --spacing-lg: 8px;
+    }
+}
+
+/* ===========================================
+   DARK MODE - Glass Adaptation
+   =========================================== */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --glass-bg-light: rgba(30, 30, 30, 0.7);
+        --glass-bg-medium: rgba(30, 30, 30, 0.75);
+        --glass-bg-heavy: rgba(30, 30, 30, 0.85);
+        --glass-bg-extreme: rgba(30, 30, 30, 0.95);
+        
+        --glass-border-light: rgba(255, 255, 255, 0.1);
+        --glass-border-medium: rgba(255, 255, 255, 0.15);
+        --glass-border-accent: rgba(100, 180, 255, 0.2);
+        --glass-border-accent-hover: rgba(100, 180, 255, 0.3);
+        
+        --glass-tint-primary: rgba(100, 180, 255, 0.1);
+        --glass-tint-primary-strong: rgba(100, 180, 255, 0.2);
+        --glass-tint-primary-heavy: rgba(100, 180, 255, 0.3);
+    }
+}
+
+/* ===========================================
+   PRINT - Disable Glass Effects
+   =========================================== */
+
+@media print {
+    .glass,
+    .glass-card,
+    .glass-button,
+    .glass-navbar,
+    .glass-modal-content {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        background: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* ===========================================
+   ELEMENTOR SPECIFIC FIXES
+   =========================================== */
+
+.elementor-widget {
+    font-family: var(--font-family) !important;
+}
+
+.elementor-widget-heading h1,
+.elementor-widget-heading h2,
+.elementor-widget-heading h3 {
+    font-family: var(--font-family) !important;
+}
+
+.elementor-text-editor,
+.elementor-widget-text-editor {
+    font-family: var(--font-family) !important;
+    line-height: 1.7 !important;
+}
+
+.elementor-element .elementor-button {
+    font-family: var(--font-family) !important;
+    border-radius: var(--glass-radius-capsule) !important;
+}
+
+.elementor-widget-form .elementor-field-group input,
+.elementor-widget-form .elementor-field-group textarea {
+    font-family: var(--font-family) !important;
+}
+
+/* ===========================================
+   WOOCOMMERCE (if active)
+   =========================================== */
+
+.woocommerce ul.products li.product .price,
+.woocommerce .price {
+    color: var(--primary) !important;
+    font-weight: 600;
+}
+
+.woocommerce #respond input#submit,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
+    background: var(--primary) !important;
+    font-family: var(--font-family) !important;
+    border-radius: var(--glass-radius-md) !important;
+}
+
+/* ===========================================
+   GLASSMORPHISM UTILITY CLASSES (Legacy Support)
+   =========================================== */
+
+.glass-surface {
+    background: var(--glass-bg-light) !important;
+    backdrop-filter: blur(var(--glass-blur-light));
+    -webkit-backdrop-filter: blur(var(--glass-blur-light));
+    border: 1px solid var(--glass-border-accent);
+}
+
+.service-box,
+.elementor-widget-spacer .elementor-widget-container {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(var(--glass-blur-medium));
+    -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+    border-radius: var(--glass-radius-lg);
+    border: 1px solid var(--glass-border-medium);
+    padding: var(--spacing-lg);
+    transition: all var(--glass-transition-medium);
+}
+
+.service-box:hover {
+    transform: translateY(var(--glass-hover-lift-large));
+    box-shadow: var(--glass-shadow-heavy);
+}
+
+.project-gallery-item,
+.gallery-item {
+    border-radius: var(--glass-radius-md) !important;
+    overflow: hidden;
+    border: 1px solid var(--glass-border-accent);
+}
+
+.project-gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 113, 188, 0.2);
+}
+
+/* ===========================================
+   SECTIONS
+   =========================================== */
+
+section, 
+.elementor-section {
+    background: var(--background) !important;
+}
+
+.elementor-section.has-background {
+    background: var(--surface) !important;
+}
+
+/* ===========================================
+   LINKS
+   =========================================== */
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}

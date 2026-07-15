@@ -1,0 +1,152 @@
+---
+const certs = [
+  { icon: 'verified', title: 'Kemperol', desc: 'Zertifizierter Fachbetrieb für Kemperol Abdichtungen mit spezialisiertem Fachpersonal.' },
+  { icon: 'security', title: 'TÜV-geprüft', desc: 'TÜV-geprüfter Folientechniker gewährleistet höchste Sicherheit und Qualität.' },
+  { icon: 'emoji_events', title: 'Fassadenpreis 2001', desc: 'Auszeichnung für herausragende Spenglerarbeiten an denkmalgeschützten Fassaden in München.' },
+];
+---
+<section class="sp-certs-section">
+  <div class="sp-certs-container">
+    <div class="sp-certs-header">
+      <h2>Zertifizierungen</h2>
+      <p>Qualität, die überzeugt – unsere Auszeichnungen und Zertifikate.</p>
+    </div>
+    <div class="sp-certs-grid">
+      {certs.map((cert) => (
+        <div class="sp-cert-card">
+          <div class="sp-cert-icon">
+            <span class="material-symbols-outlined">{cert.icon}</span>
+          </div>
+          <h3>{cert.title}</h3>
+          <p>{cert.desc}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-certs-section { padding: 80px 0; background: #f8f9fa; }
+
+  .sp-certs-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .sp-certs-header { text-align: center; margin-bottom: 48px; }
+
+  .sp-certs-header h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #1a1c1e;
+    margin-bottom: 16px;
+  }
+
+  .sp-certs-header p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #404751;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sp-certs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .sp-cert-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 113, 188, 0.08);
+  }
+
+  .sp-cert-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 113, 188, 0.12); }
+
+  .sp-cert-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #d1e4ff;
+    border: 2px solid #0071bc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .sp-cert-card:hover .sp-cert-icon { transform: scale(1.1); }
+
+  .sp-cert-icon .material-symbols-outlined { font-size: 36px; color: #0071bc; }
+
+  .sp-cert-card h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1c1e;
+    margin-bottom: 12px;
+  }
+
+  .sp-cert-card p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #404751;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .sp-certs-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-certs-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 1024px) {
+    .sp-certs-header h2 { font-size: 28px; }
+    .sp-cert-card { padding: 24px; }
+  }
+
+  @media (max-width: 768px) {
+    .sp-certs-container { padding: 0 16px; }
+    .sp-certs-header { margin-bottom: 32px; }
+    .sp-certs-header h2 { font-size: 28px; }
+    .sp-cert-icon { width: 64px; height: 64px; }
+    .sp-cert-icon .material-symbols-outlined { font-size: 28px; }
+    .sp-cert-card h3 { font-size: 18px; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-certs-header h2 { font-size: 26px; }
+    .sp-certs-header p { font-size: 15px; }
+    .sp-cert-card { padding: 20px; }
+  }
+
+  @media (max-width: 480px) {
+    .sp-certs-header h2 { font-size: 24px; }
+    .sp-cert-card { padding: 16px; border-radius: 12px; }
+    .sp-cert-icon { width: 56px; height: 56px; margin-bottom: 16px; }
+    .sp-cert-icon .material-symbols-outlined { font-size: 24px; }
+    .sp-cert-card h3 { font-size: 16px; margin-bottom: 8px; }
+    .sp-cert-card p { font-size: 13px; }
+  }
+
+  @media (max-width: 360px) {
+    .sp-certs-header h2 { font-size: 22px; }
+    .sp-cert-card h3 { font-size: 15px; }
+  }
+</style>

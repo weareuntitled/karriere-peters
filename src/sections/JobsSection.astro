@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import JobCard from '../components/cards/JobCard.astro';
+
+const jobs = (await getCollection('jobs')).sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+---
+<section class="sp-jobs-section">
+  <div class="sp-jobs-container">
+    <div class="sp-jobs-header">
+      <h2>Offene Stellen</h2>
+      <p>Werden Sie Teil unseres Teams – wir suchen Fachkräfte für spannende Projekte.</p>
+    </div>
+    <div class="sp-jobs-list">
+      {jobs.map((job) => (
+        <JobCard
+          title={job.data.title}
+          type={job.data.type}
+          location={job.data.location}
+          hours={job.data.hours}
+          summary={job.data.summary}
+          slug={job.slug}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sp-jobs-section { padding: 80px 0; background: #f8f9fa; }
+
+  .sp-jobs-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .sp-jobs-header { text-align: center; margin-bottom: 48px; }
+
+  .sp-jobs-header h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #1a1c1e;
+    margin-bottom: 16px;
+  }
+
+  .sp-jobs-header p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #404751;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .sp-jobs-list { max-width: 800px; margin: 0 auto; }
+
+  @media (max-width: 1024px) { .sp-jobs-header h2 { font-size: 28px; } }
+
+  @media (max-width: 768px) {
+    .sp-jobs-container { padding: 0 16px; }
+    .sp-jobs-header { margin-bottom: 32px; }
+    .sp-jobs-header h2 { font-size: 28px; }
+  }
+
+  @media (max-width: 640px) {
+    .sp-jobs-header h2 { font-size: 26px; }
+    .sp-jobs-header p { font-size: 15px; }
+  }
+
+  @media (max-width: 480px) { .sp-jobs-header h2 { font-size: 24px; } }
+  @media (max-width: 360px) { .sp-jobs-header h2 { font-size: 22px; } }
+</style>

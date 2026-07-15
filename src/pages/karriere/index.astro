@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/layout/Navbar.astro';
+import Footer from '../../components/layout/Footer.astro';
+import HeroSection from '../../sections/HeroSection.astro';
+import JobsSection from '../../sections/JobsSection.astro';
+import BenefitsSection from '../../sections/BenefitsSection.astro';
+import CtaSection from '../../sections/CtaSection.astro';
+import FaqSection from '../../sections/FaqSection.astro';
+import TypebotEmbed from '../../components/forms/TypebotEmbed.astro';
+---
+<BaseLayout title="Karriere">
+  <Navbar variant="minimal" />
+  <main>
+    <HeroSection />
+    <JobsSection />
+    <BenefitsSection />
+    <CtaSection />
+    <FaqSection />
+  </main>
+  <Footer />
+  <TypebotEmbed />
+</BaseLayout>
