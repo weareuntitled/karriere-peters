@@ -2,62 +2,29 @@
 slug: flow
 title: Key flows
 role: key flows
-updated: "2026-07-12T18:38:18"
+updated: "2026-07-15T15:49:04"
 ---
 
 # Key flows
 
-## Deployment-Pipeline
+## Page Rendering
+1. WordPress Page erstellt ??? Page Attribute ??? Template ausgew??hlt (z.B. "Service: Folientechnik")
+2. PHP-Template rendert komplette Seite inkl. Inline-CSS und HTML
+3. Bei Service-Seiten: Elementor Canvas optional nutzbar
 
-```mermaid
-sequenceDiagram
-    participant Dev as Entwickler
-    participant Git as GitHub
-    participant GHA as GitHub Actions
-    participant FTP as All-Inkl FTP
-    participant Live as Live-Server
+## Kontaktformular
+1. Nutzer f??llt Formular (Name, Email, Tel, Nachricht, DSGVO)
+2. POST an Web3Forms API
+3. Weiterleitung auf Danke-Seite
 
-    Dev->>Git: git push main
-    Git->>GHA: Trigger workflow
-    GHA->>GHA: npm install && npm run build
-    GHA->>FTP: Upload dist/ via FTP
-    FTP->>Live: Dateien live
-    Note over Live: Karriere-Seite deployt
-```
+## Copywriting-Workflow
+1. Chrome DevTools: Texte von Live-Seiten scrapen ??? JSON
+2. `node copy-audit.mjs`: Geviertstrich, Jargon, Satzl??nge pr??fen ??? AUDIT.md
+3. `node copy-rewrite.mjs`: Jargon ersetzen, bereinigen ??? REWRITE.md
+4. Manuell: Kurze S??tze, kein Blabla ??? finale Texte in Templates einbauen
+5. Siehe [[copywriting-workflow]]
 
-## Bewerbungsprozess (Karriereseite)
-
-```mermaid
-sequenceDiagram
-    participant User as Bewerber
-    participant Site as Karriereseite
-    participant API as Web3Forms API
-    participant Mail as Email (handwerk@...)
-
-    User->>Site: F??llt Formular aus
-    Site->>API: POST Bewerbungsdaten
-    API->>Mail: Sendet Benachrichtigung
-    Site->>User: Best??tigungsmeldung
-```
-
-## Migration Live ??? Neu
-
-```mermaid
-sequenceDiagram
-    participant Alt as ebit.at (FirmenABC)
-    participant DNS as Domain-Registrar
-    participant Neu as All-Inkl
-    participant Email as M365 / All-Inkl
-
-    Note over Alt,Email: Phase 1: Vorbereitung
-    Alt->>DNS: Auth-Code f??r Domain-Transfer
-    Email->>Email: IMAP-Migration M365 -> All-Inkl
-
-    Note over Alt,Email: Phase 2: Umschaltung
-    DNS->>Neu: Nameserver auf All-Inkl ??ndern
-    Neu->>Neu: Website live schalten
-
-    Note over Alt,Email: Phase 3: Altsystem
-    Alt->>Alt: ebit.at Hosting deaktivieren
-    Email->>Email: M365 deaktivieren
-```
+## Template-Validierung
+1. `node validate-tokens.mjs`: `--sp-blue` gegen Parent-Induxo-Referenz pr??fen
+2. Bei Abweichung: `:root` Token im Template korrigieren
+3. Siehe [[template-validation-harness]]

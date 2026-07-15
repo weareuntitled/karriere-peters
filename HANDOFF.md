@@ -1,3 +1,34 @@
+<<<<<<< HEAD
+# Handoff: Completed Work
+
+## Farb-Fix (2026-07-15)
+7 Templates: `--sp-blue: #0071bc` → `#007bff`. `node validate-tokens.mjs` → 7/7.
+
+## Copywriting (2026-07-15)
+Alle 7 Templates live umgesetzt: kein —, kein Jargon, kurze Sätze.
+
+| Template | Status |
+|----------|--------|
+| tpl-service-folientechnik.php | ✅ live |
+| tpl-service-service-reparatur.php | ✅ live |
+| tpl-service-neubau.php | ✅ live |
+| tpl-service-fassadenverkleidung.php | ✅ live |
+| tpl-service-spenglerarbeiten.php | ✅ live |
+| tpl-service-dachsanierung.php | ✅ live |
+| tpl-kontakt.php | ✅ live |
+
+## Files
+| File | Purpose |
+|------|---------|
+| `validate-tokens.mjs` | CSS-Validierung |
+| `copy-audit.mjs` | Text-Audit |
+| `copy-rewrite.mjs` | Mechanische Bereinigung |
+| `COPYWRITING-AUDIT.md` | Audit-Ergebnis |
+| `COPYWRITING-REWRITE.md` | Finale Texte |
+| `PLAN.md` | Methodik |
+| `VALIDATION-SESSION.md` | Session-Protokoll |
+| `HANDOFF.md` | Diese Datei |
+=======
 # Projektübergabe — Spenglerei Peters Karriere-Seite
 
 Stand: laufender Dev-Server, ~50% fertig. Domain und Hosting noch offen.
@@ -87,3 +118,4 @@ src/
 ├── SKETCH.md                  # A/B/C-Vergleich, Winner dokumentiert
 └── dev-out.log                # Astro-Dev-Logs (live)
 ```
+>>>>>>> 8a807e2174aa6d1cb8cdacc3f168bcf1ced0b84c

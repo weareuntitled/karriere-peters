@@ -1,0 +1,171 @@
+[
+  {
+    "key": "group_service",
+    "title": "Dienstleistung Details",
+    "fields": [
+      {
+        "key": "field_service_icon",
+        "label": "Icon",
+        "name": "service_icon",
+        "type": "text",
+        "instructions": "z.B. fa-roof, fa-tools, fa-home"
+      },
+      {
+        "key": "field_service_short_desc",
+        "label": "Kurzbeschreibung",
+        "name": "service_short_desc",
+        "type": "text"
+      },
+      {
+        "key": "field_service_order",
+        "label": "Sortierung",
+        "name": "service_order",
+        "type": "number"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "service"
+        }
+      ]
+    ]
+  },
+  {
+    "key": "group_project",
+    "title": "Projekt Details",
+    "fields": [
+      {
+        "key": "field_project_location",
+        "label": "Ort",
+        "name": "project_location",
+        "type": "text"
+      },
+      {
+        "key": "field_project_year",
+        "label": "Baujahr",
+        "name": "project_year",
+        "type": "number"
+      },
+      {
+        "key": "field_project_category",
+        "label": "Kategorie",
+        "name": "project_category",
+        "type": "select",
+        "choices": {
+          "dachsanierung": "Dachsanierung",
+          "neubau": "Neubau",
+          "flachdach": "Flachdach",
+          "fassadenverkleidung": "Fassadenverkleidung",
+          "balkonabdichtung": "Balkonabdichtung"
+        }
+      },
+      {
+        "key": "field_project_gallery",
+        "label": "Bildergalerie",
+        "name": "project_gallery",
+        "type": "gallery"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "project"
+        }
+      ]
+    ]
+  },
+  {
+    "key": "group_job",
+    "title": "Stellenanzeige Details",
+    "fields": [
+      {
+        "key": "field_job_type",
+        "label": "Anstellungstyp",
+        "name": "job_type",
+        "type": "select",
+        "choices": {
+          "vollzeit": "Vollzeit",
+          "teilzeit": "Teilzeit",
+          "ausbildung": "Ausbildung"
+        }
+      },
+      {
+        "key": "field_job_location",
+        "label": "Arbeitsort",
+        "name": "job_location",
+        "type": "text"
+      },
+      {
+        "key": "field_job_contact",
+        "label": "Ansprechpartner",
+        "name": "job_contact",
+        "type": "text"
+      },
+      {
+        "key": "field_job_email",
+        "label": "Bewerbungs-Email",
+        "name": "job_email",
+        "type": "email"
+      },
+      {
+        "key": "field_job_requirements",
+        "label": "Anforderungen",
+        "name": "job_requirements",
+        "type": "wysiwyg"
+      },
+      {
+        "key": "field_job_benefits",
+        "label": "Benefits",
+        "name": "job_benefits",
+        "type": "wysiwyg"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "job"
+        }
+      ]
+    ]
+  },
+  {
+    "key": "group_team_member",
+    "title": "Team-Mitglied Details",
+    "fields": [
+      {
+        "key": "field_team_position",
+        "label": "Position",
+        "name": "team_position",
+        "type": "text"
+      },
+      {
+        "key": "field_team_certification",
+        "label": "Zertifizierung",
+        "name": "team_certification",
+        "type": "text"
+      },
+      {
+        "key": "field_team_since",
+        "label": "Im Unternehmen seit",
+        "name": "team_since",
+        "type": "number"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "post_type",
+          "operator": "==",
+          "value": "team_member"
+        }
+      ]
+    ]
+  }
+]

@@ -2,31 +2,11 @@
 slug: background
 title: Project background
 role: project background
-updated: "2026-07-12T22:33:29"
+updated: "2026-07-15T15:20:33"
 ---
 
 # Project background
 
-## Ziel
-Die bestehende Website der Spenglermeisterbetrieb Peters GmbH (aktuell statisches HTML auf ebit.at, betreut durch FirmenABC) auf eine moderne, selbst verwaltete Infrastruktur migrieren.
+Website der Spenglermeisterbetrieb Peters GmbH auf WordPress-Basis. Aktuell laufend unter Local WP (spenglerei-peters.local) mit Induxo-Theme. 7 Custom PHP-Templates im Parent Theme (`induxo/template/`) mit Inline-CSS. Child-Theme (induxo-child) inaktiv, enth??lt veraltete Template-Kopie. Ziel: moderne, selbst verwaltete Website.
 
-## Warum
-- Vertrag mit FirmenABC l??uft aus
-- Eigene Kontrolle ??ber Domain, Hosting und Inhalte gew??nscht
-- Modernisierung der Website (WordPress + Astro)
-
-## Zielgruppe
-- Norbert Peters (Gesch??ftsf??hrer)
-- Handwerkskunden im Raum K??hbach/Aichach/M??nchen
-
-## Nicht-Ziele
-- Kein E-Commerce / Online-Shop
-- Kein CRM oder Buchhaltungsintegration
-- Kein Social Media Management
-
-## Status
-- 2026-03-06: K??ndigung bei FirmenABC eingereicht
-- 2026-05-04: Auth-Code f??r Domain angefragt ??? noch ausstehend
-- 2026-07-12: VPS-Test (76.13.4.77) zur??ckgerollt; Shared Hosting (187.77.68.83) als aktive Testplattform aufgebaut
-- 2026-07-12: website.peters-erp.com (WordPress Docker) + karriere.peters-erp.com (Astro 4) live auf Testserver
-- 2026-07-12: nginx geh??rtet, Docker optimiert, Monitoring eingerichtet, Git-Repo bereinigt
+Validierung: `node validate-tokens.mjs` pr??ft Template-Konsistenz gegen Parent-Theme-Referenz.

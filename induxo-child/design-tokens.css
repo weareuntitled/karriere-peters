@@ -1,0 +1,395 @@
+/**
+ * Design Token Architecture - Liquid Glass System (iOS 26)
+ * Expert-level token taxonomy with 3-tier hierarchy
+ * 
+ * TIER 1: Global Tokens (Raw values)
+ * TIER 2: Alias Tokens (Semantic meaning)
+ * TIER 3: Component Tokens (Scoped usage)
+ */
+
+/* ============================================
+   TIER 1: GLOBAL TOKENS (Raw Values)
+   ============================================ */
+
+:root {
+    /* === Global Color Palette === */
+    --color-blue-50: #e4eef7;
+    --color-blue-100: #d2e4ff;
+    --color-blue-200: #a0c4e8;
+    --color-blue-300: #609ac9;
+    --color-blue-400: #1f6fa8;
+    --color-blue-500: #00355f;
+    --color-blue-600: #07497d;
+    --color-blue-700: #0f4c81;
+    --color-blue-800: #002544;
+    --color-blue-900: #001a30;
+    
+    --color-slate-50: #f7f9fb;
+    --color-slate-100: #e4e7eb;
+    --color-slate-200: #e2e2e5;
+    --color-slate-300: #c2c7d1;
+    --color-slate-400: #a1a3a7;
+    --color-slate-500: #727780;
+    --color-slate-600: #5c666c;
+    --color-slate-700: #42474f;
+    --color-slate-800: #2d3133;
+    --color-slate-900: #191c1e;
+    
+    --color-white: #ffffff;
+    --color-white-alpha-50: rgba(255, 255, 255, 0.5);
+    --color-white-alpha-70: rgba(255, 255, 255, 0.7);
+    --color-white-alpha-75: rgba(255, 255, 255, 0.75);
+    --color-white-alpha-80: rgba(255, 255, 255, 0.8);
+    --color-white-alpha-85: rgba(255, 255, 255, 0.85);
+    --color-white-alpha-90: rgba(255, 255, 255, 0.9);
+    --color-white-alpha-95: rgba(255, 255, 255, 0.95);
+    
+    --color-black-alpha-03: rgba(0, 0, 0, 0.03);
+    --color-black-alpha-04: rgba(0, 0, 0, 0.04);
+    --color-black-alpha-05: rgba(0, 0, 0, 0.05);
+    --color-black-alpha-06: rgba(0, 0, 0, 0.06);
+    --color-black-alpha-08: rgba(0, 0, 0, 0.08);
+    --color-black-alpha-12: rgba(0, 0, 0, 0.12);
+    --color-black-alpha-10: rgba(0, 0, 0, 0.1);
+    --color-black-alpha-15: rgba(0, 0, 0, 0.15);
+    --color-black-alpha-20: rgba(0, 0, 0, 0.2);
+    --color-black-alpha-25: rgba(0, 0, 0, 0.25);
+    --color-black-alpha-30: rgba(0, 0, 0, 0.3);
+    
+    --color-blue-alpha-05: rgba(0, 53, 95, 0.05);
+    --color-blue-alpha-08: rgba(0, 53, 95, 0.08);
+    --color-blue-alpha-10: rgba(0, 53, 95, 0.1);
+    --color-blue-alpha-12: rgba(0, 53, 95, 0.12);
+    --color-blue-alpha-15: rgba(0, 53, 95, 0.15);
+    --color-blue-alpha-20: rgba(0, 53, 95, 0.2);
+    --color-blue-alpha-25: rgba(0, 53, 95, 0.25);
+    --color-blue-alpha-30: rgba(0, 53, 95, 0.3);
+    
+    /* === Global Spacing Scale (4px base) === */
+    --space-unit: 4px;
+    --space-xs: 4px;      /* 1 unit */
+    --space-sm: 8px;      /* 2 units */
+    --space-md: 16px;     /* 4 units */
+    --space-lg: 24px;     /* 6 units */
+    --space-xl: 48px;     /* 12 units */
+    --space-2xl: 64px;    /* 16 units */
+    --space-3xl: 80px;    /* 20 units */
+    
+    /* === Global Typography === */
+    --font-family-base: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-family-mono: 'Courier New', monospace;
+    
+    --font-size-xs: 11px;
+    --font-size-sm: 13px;
+    --font-size-base: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+    --font-size-3xl: 48px;
+    
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800;
+    
+    --line-height-tight: 1.05;
+    --line-height-snug: 1.2;
+    --line-height-normal: 1.3;
+    --line-height-relaxed: 1.6;
+    --line-height-loose: 1.75;
+    
+    --letter-spacing-tight: -0.04em;
+    --letter-spacing-snug: -0.02em;
+    --letter-spacing-normal: 0;
+    --letter-spacing-wide: 0.05em;
+    --letter-spacing-wider: 0.08em;
+    --letter-spacing-widest: 0.12em;
+    
+    /* === Global Border Radius === */
+    --radius-none: 0;
+    --radius-sm: 2px;
+    --radius-md: 4px;
+    --radius-lg: 6px;
+    --radius-xl: 8px;
+    --radius-2xl: 12px;
+    --radius-3xl: 12px;
+    --radius-capsule: 9999px;
+    --radius-circle: 50%;
+    
+    /* === Global Glass Properties === */
+    --glass-blur-xs: 2px;
+    --glass-blur-sm: 4px;
+    --glass-blur-md: 8px;
+    --glass-blur-lg: 12px;
+    --glass-blur-xl: 20px;
+    
+    /* === Global Elevation (Shadows) === */
+    --shadow-xs: 0 1px 2px var(--color-black-alpha-05);
+    --shadow-sm: 0 1px 3px var(--color-black-alpha-06), 0 1px 2px var(--color-black-alpha-04);
+    --shadow-md: 0 4px 12px var(--color-black-alpha-06), 0 1px 2px var(--color-black-alpha-04);
+    --shadow-lg: 0 8px 28px var(--color-black-alpha-08), 0 2px 8px var(--color-black-alpha-04);
+    --shadow-xl: 0 12px 40px var(--color-black-alpha-08);
+    --shadow-2xl: 0 20px 60px var(--color-black-alpha-10);
+    
+    /* === Global Transition === */
+    --ease-default: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    
+    --duration-fast: 0.2s;
+    --duration-normal: 0.3s;
+    --duration-slow: 0.5s;
+    --duration-slower: 0.6s;
+    
+    /* === Global Z-Index Scale === */
+    --z-below: -1;
+    --z-default: 0;
+    --z-above: 1;
+    --z-overlay: 10;
+    --z-modal: 100;
+    --z-modal-content: 1000;
+    --z-tooltip: 10000;
+}
+
+/* ============================================
+   TIER 2: ALIAS TOKENS (Semantic Meaning)
+   ============================================ */
+
+:root {
+    /* === Surface Colors === */
+    --surface-primary: var(--color-slate-50);
+    --surface-secondary: var(--color-slate-100);
+    --surface-tertiary: var(--color-slate-200);
+    --surface-container: var(--color-white-alpha-75);
+    --surface-container-heavy: var(--color-white-alpha-85);
+    --surface-container-extreme: var(--color-white-alpha-95);
+    
+    /* === Text Colors === */
+    --text-primary: var(--color-slate-900);
+    --text-secondary: var(--color-slate-700);
+    --text-tertiary: var(--color-slate-500);
+    --text-inverse: var(--color-white);
+    --text-link: var(--color-blue-500);
+    --text-link-hover: var(--color-blue-600);
+    
+    /* === Border Colors === */
+    --border-light: var(--color-white-alpha-50);
+    --border-medium: var(--color-white-alpha-70);
+    --border-accent: var(--color-blue-alpha-15);
+    --border-accent-hover: var(--color-blue-alpha-30);
+    
+    /* === Brand Colors === */
+    --brand-primary: var(--color-blue-500);
+    --brand-primary-dark: var(--color-blue-600);
+    --brand-primary-container: var(--color-blue-100);
+    --brand-on-primary: var(--color-white);
+    --brand-on-primary-container: var(--color-blue-900);
+    
+    /* === Status Colors === */
+    --status-success: #34c759;
+    --status-warning: #ff6b10;
+    --status-error: #ba1a1a;
+    --status-info: var(--color-blue-500);
+    
+    /* === Glass Material === */
+    --glass-bg-light: var(--surface-container);
+    --glass-bg-medium: var(--surface-container);
+    --glass-bg-heavy: var(--surface-container-heavy);
+    --glass-bg-extreme: var(--surface-container-extreme);
+    
+    --glass-blur-light: var(--glass-blur-sm);
+    --glass-blur-medium: var(--glass-blur-md);
+    --glass-blur-heavy: var(--glass-blur-lg);
+    --glass-blur-extreme: var(--glass-blur-xl);
+    
+    --glass-shadow-light: var(--shadow-sm);
+    --glass-shadow-medium: var(--shadow-md);
+    --glass-shadow-heavy: 0 8px 28px var(--color-black-alpha-08), 0 2px 8px var(--color-black-alpha-04);
+    --glass-shadow-extreme: 0 20px 40px var(--color-black-alpha-10);
+    
+    --glass-tint-light: var(--color-blue-alpha-10);
+    --glass-tint-medium: var(--color-blue-alpha-20);
+    --glass-tint-heavy: var(--color-blue-alpha-30);
+    
+    /* === Interactive States === */
+    --hover-lift-sm: -4px;
+    --hover-lift-md: -8px;
+    --active-scale: 0.98;
+    
+    /* === Content Spacing === */
+    --content-max-width-sm: 600px;
+    --content-max-width-md: 700px;
+    --content-max-width-lg: 1280px;
+    
+    /* === Transitions === */
+    --transition-fast: all var(--duration-fast) var(--ease-default);
+    --transition-normal: all var(--duration-normal) var(--ease-default);
+    --transition-slow: all var(--duration-slow) var(--ease-default);
+}
+
+/* ============================================
+   TIER 3: COMPONENT TOKENS (Scoped Usage)
+   ============================================ */
+
+:root {
+    /* === Button Tokens === */
+    --button-padding-x: var(--space-lg);
+    --button-padding-y: var(--space-md);
+    --button-font-size: var(--font-size-sm);
+    --button-font-weight: var(--font-weight-semibold);
+    --button-letter-spacing: var(--letter-spacing-normal);
+    --button-text-transform: none;
+    --button-border-radius: var(--radius-md);
+    
+    --button-primary-bg: var(--brand-primary);
+    --button-primary-text: var(--brand-on-primary);
+    --button-primary-bg-hover: var(--brand-primary-dark);
+    
+    --button-secondary-bg: transparent;
+    --button-secondary-text: var(--text-primary);
+    --button-secondary-border: var(--border-accent);
+    
+    /* === Card Tokens === */
+    --card-padding: var(--space-lg);
+    --card-border-radius: var(--radius-2xl);
+    --card-bg: var(--glass-bg-medium);
+    --card-border: var(--border-light);
+    --card-shadow: var(--glass-shadow-medium);
+    --card-hover-lift: var(--hover-lift-sm);
+    
+    /* === Input Tokens === */
+    --input-padding-x: var(--space-md);
+    --input-padding-y: var(--space-md);
+    --input-border-radius: var(--radius-md);
+    --input-bg: var(--color-white-alpha-50);
+    --input-border: var(--color-slate-300);
+    --input-focus-border: var(--brand-primary);
+    
+    /* === Navigation Tokens === */
+    --navbar-padding-x: var(--space-2xl);
+    --navbar-padding-y: var(--space-md);
+    --navbar-bg: var(--glass-bg-heavy);
+    --navbar-border: var(--border-light);
+    
+    /* === Typography Tokens === */
+    --type-h1-size: var(--font-size-3xl);
+    --type-h1-weight: var(--font-weight-extrabold);
+    --type-h1-line-height: var(--line-height-snug);
+    --type-h1-letter-spacing: var(--letter-spacing-snug);
+    
+    --type-h2-size: var(--font-size-2xl);
+    --type-h2-weight: var(--font-weight-semibold);
+    --type-h2-line-height: var(--line-height-normal);
+    --type-h2-letter-spacing: var(--letter-spacing-normal);
+    
+    --type-h3-size: var(--font-size-xl);
+    --type-h3-weight: var(--font-weight-semibold);
+    --type-h3-line-height: var(--line-height-relaxed);
+    
+    --type-body-lg-size: var(--font-size-lg);
+    --type-body-md-size: var(--font-size-md);
+    --type-label-sm-size: var(--font-size-sm);
+}
+
+/* ============================================
+   DARK MODE - Token Overrides
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Surface Colors - Dark */
+        --surface-primary: #1a1a1a;
+        --surface-secondary: #2a2a2a;
+        --surface-tertiary: #3a3a3a;
+        --surface-container: rgba(30, 30, 30, 0.75);
+        --surface-container-heavy: rgba(30, 30, 30, 0.85);
+        --surface-container-extreme: rgba(30, 30, 30, 0.95);
+        
+        /* Text Colors - Dark */
+        --text-primary: #f0f0f3;
+        --text-secondary: #e2e2e5;
+        --text-tertiary: #a1a3a7;
+        
+        /* Border Colors - Dark */
+        --border-light: rgba(255, 255, 255, 0.1);
+        --border-medium: rgba(255, 255, 255, 0.15);
+        --border-accent: rgba(100, 180, 255, 0.2);
+        --border-accent-hover: rgba(100, 180, 255, 0.3);
+        
+        /* Glass Material - Dark */
+        --glass-bg-light: rgba(30, 30, 30, 0.7);
+        --glass-bg-medium: rgba(30, 30, 30, 0.75);
+        --glass-bg-heavy: rgba(30, 30, 30, 0.85);
+        --glass-bg-extreme: rgba(30, 30, 30, 0.95);
+        
+        --glass-tint-light: rgba(100, 180, 255, 0.1);
+        --glass-tint-medium: rgba(100, 180, 255, 0.2);
+        --glass-tint-heavy: rgba(100, 180, 255, 0.3);
+    }
+}
+
+/* ============================================
+   UTILITY: Token Debug (Development Only)
+   ============================================ */
+
+[data-debug-tokens="true"] {
+    /* Visualize spacing tokens */
+    --space-xs: 4px solid red;
+    --space-sm: 8px solid blue;
+    --space-md: 16px solid green;
+    --space-lg: 24px solid yellow;
+    --space-xl: 48px solid purple;
+}
+
+/* ============================================
+   COMPONENT: Using Tokens Properly
+   ============================================ */
+
+/* ✅ Correct Usage - Component tokens */
+.glass-button-tokenized {
+    /* Use component tokens, not raw values */
+    padding: var(--button-padding-y) var(--button-padding-x);
+    background: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    border-radius: var(--button-border-radius);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    letter-spacing: var(--button-letter-spacing);
+    text-transform: var(--button-text-transform);
+    transition: var(--transition-normal);
+}
+
+.glass-button-tokenized:hover {
+    background: var(--button-primary-bg-hover);
+    transform: translateY(var(--hover-lift-sm));
+    box-shadow: var(--glass-shadow-light);
+}
+
+/* ✅ Card with tokens */
+.glass-card-tokenized {
+    padding: var(--card-padding);
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--glass-blur-medium));
+    -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-normal);
+}
+
+.glass-card-tokenized:hover {
+    transform: translateY(var(--card-hover-lift));
+    box-shadow: var(--glass-shadow-heavy);
+}
+
+/* ✅ Typography with tokens */
+.glass-h1-tokenized {
+    font-family: var(--font-family-base);
+    font-size: var(--type-h1-size);
+    font-weight: var(--type-h1-weight);
+    line-height: var(--type-h1-line-height);
+    letter-spacing: var(--type-h1-letter-spacing);
+    color: var(--text-primary);
+}

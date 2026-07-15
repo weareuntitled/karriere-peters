@@ -1,0 +1,273 @@
+<!-- ============================================
+     SERVICES GRID - Glassmorphism Bento Style
+     Für Elementor: Einfügen als HTML-Widget
+     ============================================ -->
+
+<style>
+    .sp-services-container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 32px;
+    }
+    
+    .sp-services-header {
+        text-align: center;
+        margin-bottom: 48px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .sp-services-header h2 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 1.3;
+        letter-spacing: -0.01em;
+        color: #1a1c1e;
+        margin-bottom: 16px;
+    }
+    
+    .sp-services-header p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #404751;
+    }
+    
+    .sp-services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+    
+    /* Responsive Grid */
+    @media (max-width: 1024px) {
+        .sp-services-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .sp-service-card {
+            padding: 24px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .sp-services-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .sp-service-card {
+            padding: 24px;
+        }
+        .sp-services-header h2 {
+            font-size: 28px;
+        }
+        .sp-services-header p {
+            font-size: 15px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .sp-services-container {
+            padding: 0 16px;
+        }
+        .sp-service-card {
+            padding: 20px;
+        }
+        .sp-service-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            margin-bottom: 16px;
+        }
+        .sp-service-icon .material-symbols-outlined {
+            font-size: 28px;
+        }
+        .sp-service-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .sp-service-card p {
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .sp-service-card {
+            padding: 16px;
+            border-radius: 16px;
+        }
+        .sp-services-header {
+            margin-bottom: 32px;
+        }
+        .sp-services-header h2 {
+            font-size: 24px;
+        }
+        .sp-service-link {
+            font-size: 12px;
+        }
+    }
+    
+    /* Service Card - Glassmorphism */
+    .sp-service-card {
+        position: relative;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        padding: 32px;
+        box-shadow: 0 20px 40px rgba(0, 113, 188, 0.05);
+        transition: all 0.5s ease;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .sp-service-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom right, #d1e4ff 0%, transparent 50%);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .sp-service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 30px 60px rgba(0, 113, 188, 0.1);
+    }
+    
+    .sp-service-card:hover::before {
+        opacity: 1;
+    }
+    
+    .sp-service-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        background: #f9f9fc;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        transition: transform 0.5s ease;
+    }
+    
+    .sp-service-card:hover .sp-service-icon {
+        transform: scale(1.1);
+    }
+    
+    .sp-service-icon .material-symbols-outlined {
+        font-size: 32px;
+        color: #0071bc;
+    }
+    
+    .sp-service-card h3 {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: #1a1c1e;
+        margin-bottom: 16px;
+    }
+    
+    .sp-service-card p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #404751;
+        margin-bottom: 24px;
+        flex-grow: 1;
+    }
+    
+    .sp-service-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #0071bc;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    
+    .sp-service-link:hover {
+        gap: 12px;
+    }
+    
+    .sp-service-link .material-symbols-outlined {
+        font-size: 18px;
+    }
+</style>
+
+<!-- Material Symbols Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+<div class="sp-services-container">
+    <div class="sp-services-header">
+        <h2>Unsere Kernleistungen</h2>
+        <p>Höchste Verarbeitungsqualität und langlebige Materialien. Wir bieten maßgeschneiderte Lösungen für Ihr Bauvorhaben.</p>
+    </div>
+    
+    <div class="sp-services-grid">
+        <!-- Card 1: Dachdeckerei -->
+        <div class="sp-service-card">
+            <div class="sp-service-icon">
+                <span class="material-symbols-outlined">roofing</span>
+            </div>
+            <h3>Dachdeckerei</h3>
+            <p>Langlebige und ästhetisch anspruchsvolle Dacheindeckungen in Metall. Von Stehfalz bis zur komplexen Gaubenverkleidung.</p>
+            <a href="#" class="sp-service-link">
+                Mehr erfahren
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+        
+        <!-- Card 2: Fassadenbau -->
+        <div class="sp-service-card">
+            <div class="sp-service-icon">
+                <span class="material-symbols-outlined">apartment</span>
+            </div>
+            <h3>Fassadenbau</h3>
+            <p>Moderne Metallfassaden als architektonisches Statement. Witterungsbeständig, wartungsarm und energetisch optimiert.</p>
+            <a href="#" class="sp-service-link">
+                Mehr erfahren
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+        
+        <!-- Card 3: Regenrinnen -->
+        <div class="sp-service-card">
+            <div class="sp-service-icon">
+                <span class="material-symbols-outlined">water_drop</span>
+            </div>
+            <h3>Regenrinnen</h3>
+            <p>Zuverlässige Dachentwässerungssysteme auf Maß. Wir planen und installieren Rinnen und Fallrohre für sichere Wasserableitung.</p>
+            <a href="#" class="sp-service-link">
+                Mehr erfahren
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+        
+        <!-- Card 4: Sonderanfertigungen -->
+        <div class="sp-service-card">
+            <div class="sp-service-icon">
+                <span class="material-symbols-outlined">precision_manufacturing</span>
+            </div>
+            <h3>Sonderanfertigungen</h3>
+            <p>Maßgeschneiderte Lösungen für komplexe architektonische Herausforderungen. Höchste Präzision aus unserer Werkstatt.</p>
+            <a href="#" class="sp-service-link">
+                Mehr erfahren
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </div>
+</div>
