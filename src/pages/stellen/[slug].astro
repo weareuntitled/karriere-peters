@@ -10,25 +10,27 @@ export function getStaticPaths() {
 const { job } = Astro.props;
 const levelLabel = { erfahren: 'Erfahren', azubi: 'Azubi', montage: 'Montage' };
 const otherJobs = stellen.filter((j) => j.id !== job.id);
+const heroImage = `/hero-${job.slug}.jpg`;
 ---
 <Base title={`${job.title} – Karriere bei ${site.name}`}>
-  <section class="section section--border-bottom">
-    <div class="wrap" style="max-width:800px">
-      <a href="/#stellen" class="btn-back" aria-label="Alle Stellen anzeigen">
+  <section class="detail-hero-section" style={`background-image: url('${heroImage}')`}>
+    <div class="detail-hero-overlay"></div>
+    <div class="wrap" style="max-width:800px; position: relative; z-index: 2;">
+      <a href="/#stellen" class="btn-back" aria-label="Alle Stellen anzeigen" style="color:#fff">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polyline points="15 18 9 12 15 6"/></svg>
         Alle Stellen
       </a>
       <div class="reveal">
         <div class="detail-hero">
-          <span class="pill-badge pill-badge--accent stagger">{levelLabel[job.level]}</span>
-          <h1 class="detail-hero__title stagger">{job.title}</h1>
+          <span class="pill-badge pill-badge--white stagger">{levelLabel[job.level]}</span>
+          <h1 class="detail-hero__title stagger" style="color:#fff">{job.title}</h1>
           <div class="meta-row stagger">
             <span class="salary-badge">{job.salary_range}</span>
-            <span class="meta-item">
+            <span class="meta-item" style="color:rgba(255,255,255,0.8)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               {job.location}
             </span>
-            <span class="meta-item">
+            <span class="meta-item" style="color:rgba(255,255,255,0.8)">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
               Vollzeit · Festanstellung
             </span>

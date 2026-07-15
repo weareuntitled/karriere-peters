@@ -1,51 +1,31 @@
 ---
-import { site, footer as fd } from '../data';
+import { site } from '../data';
 const year = new Date().getFullYear();
 ---
 <footer class="footer">
   <div class="wrap">
     <div class="footer__grid">
-      <div>
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-          <img src="/peters-logo.png" alt="" style="height:36px;width:auto" />
-          <span style="font-family:Manrope,sans-serif;font-weight:700;font-size:1rem;color:var(--inverse-on-surface)">{site.name}</span>
-        </div>
-        <p style="font-size:0.875rem;color:var(--ink-muted);max-width:280px">{fd.description}</p>
-        <div style="margin-top:16px;display:flex;align-items:center;gap:8px;padding:8px 12px;background:rgba(255,255,255,0.08);border-radius:var(--radius);width:fit-content">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;color:var(--accent-soft)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          <span style="font-size:0.75rem;font-weight:600;color:var(--accent-soft)">Meisterbetrieb · seit 1999</span>
-        </div>
+      <div class="footer__left">
+        <p><strong>Spenglermeisterbetrieb Peters GmbH</strong><br>
+        Dieselstraße 10 86556 Kühbach, Deutschland<br>
+        <strong>Tel:</strong> {site.phone}<br>
+        <strong>Fax:</strong> 08251 82948<br>
+        <strong>Email:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
       </div>
-      <div>
-        <h3>Kontakt</h3>
-        <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px;font-size:0.875rem">
-          <li><a href={`tel:${site.phone.replace(/\s/g,'')}`} style="display:flex;align-items:center;gap:10px">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none;color:var(--accent-soft)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            {site.phone}
-          </a></li>
-          <li><a href={`mailto:${site.email}`} style="display:flex;align-items:center;gap:10px">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none;color:var(--accent-soft)"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            {site.email}
-          </a></li>
-          <li style="display:flex;align-items:center;gap:10px;color:var(--ink-muted)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none;color:var(--accent-soft)"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            {site.street}, {site.zip} {site.city}
-          </li>
-          <li style="display:flex;align-items:center;gap:10px;color:var(--ink-muted)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;flex:none;color:var(--accent-soft)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            Mo – Fr: 7:00 – 17:00 Uhr
-          </li>
+      <div class="footer__center">
+        <h3 class="footer__title">Links</h3>
+        <ul class="footer__links">
+          <li><a href={site.websiteUrl}>Job / Career</a></li>
+          <li><a href={`${site.websiteUrl}/contact-two/`}>Contact info</a></li>
+          <li><a href={`${site.websiteUrl}/cookie-policy-eu/`}>Cookie Policy (EU)</a></li>
         </ul>
       </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-start;gap:8px">
-        <a href="#bewerbung" class="btn btn--primary">Jetzt bewerben</a>
-        <a href="/impressum" style="font-size:0.8125rem;color:var(--ink-muted)">Impressum</a>
-        <a href="/datenschutz" style="font-size:0.8125rem;color:var(--ink-muted)">Datenschutz</a>
+      <div class="footer__right">
+        <img src="/peters-logo.png" alt={`${site.name} Logo`} class="footer__logo" width="160" height="60" />
       </div>
     </div>
     <div class="footer__bottom">
-      <span>© {year} {site.name}. Alle Rechte vorbehalten.</span>
-      <span>jobs.{site.name.toLowerCase().replace(/\s/g,'')}.de</span>
+      <span>&copy; {year} {site.name}. Alle Rechte vorbehalten.</span>
     </div>
   </div>
 </footer>

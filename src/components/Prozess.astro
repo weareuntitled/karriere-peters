@@ -12,8 +12,10 @@ import { prozess } from '../data';
       {prozess.steps.map((s) => (
         <div class="process-step stagger">
           <span class="process-step__num">{s.num}</span>
-          <h3>{s.title}</h3>
-          <p>{s.body}</p>
+          <div class="process-step__text">
+            <h3>{s.title}</h3>
+            <p>{s.body}</p>
+          </div>
         </div>
       ))}
     </div>

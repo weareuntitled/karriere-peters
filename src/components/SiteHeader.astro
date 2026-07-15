@@ -1,21 +1,32 @@
 ---
-import { site, nav } from '../data';
+import { site } from '../data';
+
+const mainLinks = [
+  { label: 'Startseite', href: 'https://spenglerei-peters.de/' },
+  { label: 'Leistungen', href: 'https://spenglerei-peters.de/leistungen/' },
+  { label: 'Über uns', href: 'https://spenglerei-peters.de/about/' },
+  { label: 'Jobs', href: '#top', active: true },
+  { label: 'Kontakt', href: 'https://spenglerei-peters.de/contact-two/' },
+];
 ---
 <header class="nav">
   <div class="wrap nav__inner">
-    <a href="#top" class="nav__brand">
-      <img src="/peters-logo.png" alt={`${site.name} Logo`} class="nav__logo-img" width="160" height="40" />
+    <a href={site.websiteUrl} class="nav__brand">
+      <img src="/peters-logo.png" alt={`${site.name} Logo`} class="nav__logo-img" width="140" height="52" />
     </a>
-    <button class="nav__burger" aria-label="Menü öffnen" aria-expanded="false">
+    <button class="nav__burger" aria-label="Men&uuml; &ouml;ffnen" aria-expanded="false">
       <span class="nav__burger-line"></span>
       <span class="nav__burger-line"></span>
       <span class="nav__burger-line"></span>
     </button>
     <nav class="nav__links" aria-label="Hauptnavigation" hidden>
-      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
-      <a href="#bewerbung" class="btn btn--primary nav__cta-mobile">Jetzt bewerben</a>
+      {mainLinks.map((l) => (
+        <a href={l.href} class:list={['nav__link', { 'nav__link--active': l.active }]}>
+          {l.label}
+        </a>
+      ))}
+      <a href="#bewerbung" class="btn btn--primary nav__cta-btn">Jetzt bewerben</a>
     </nav>
-    <a href="#bewerbung" class="btn btn--primary nav__cta">Jetzt bewerben</a>
   </div>
 </header>
 <script>
@@ -26,7 +37,7 @@ import { site, nav } from '../data';
     burger.addEventListener('click', function() {
       var expanded = burger.getAttribute('aria-expanded') === 'true';
       burger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      burger.setAttribute('aria-label', expanded ? 'Menü öffnen' : 'Menü schließen');
+      burger.setAttribute('aria-label', expanded ? 'Men\u00fc \u00f6ffnen' : 'Men\u00fc schlie\u00dfen');
       links.hidden = expanded;
       links.classList.toggle('nav__links--open', !expanded);
       document.body.classList.toggle('no-scroll', !expanded);
@@ -34,7 +45,7 @@ import { site, nav } from '../data';
     links.querySelectorAll('a').forEach(function(a) {
       a.addEventListener('click', function() {
         burger.setAttribute('aria-expanded', 'false');
-        burger.setAttribute('aria-label', 'Menü öffnen');
+        burger.setAttribute('aria-label', 'Men\u00fc \u00f6ffnen');
         links.hidden = true;
         links.classList.remove('nav__links--open');
         document.body.classList.remove('no-scroll');

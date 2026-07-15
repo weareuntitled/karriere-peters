@@ -1,5 +1,6 @@
 export const site = {
   name: 'Spenglerei Peters',
+  websiteUrl: 'https://spenglerei-peters.de',
   street: 'Dieselstraße 10',
   zip: '86556',
   city: 'Kühbach',
@@ -20,7 +21,7 @@ export const hero = {
   titleAccent: 'das sitzt.',
   brand: 'Spenglerei Meisterbetrieb Peters-GmbH',
   location: 'Kühbach · Aichach · München',
-  body: 'Seit über 25 Jahren machen wir Spengler-, Folien- und Dachdeckerarbeiten im Raum Kühbach. Wir suchen Gesellen, die saubere Arbeit schätzen und abends wieder zu Hause sein wollen. Bei uns arbeitest du mit Hilti, fährst einen Mercedes-Sprinter und wirst übertariflich bezahlt – ganz ohne Anschreiben.',
+  body: 'Seit über 25 Jahren machen wir Spengler-, Folien- und Dachdeckerarbeiten im Raum Kühbach. Wir suchen Gesellen, die saubere Arbeit schätzen und abends wieder zu Hause sein wollen. Bei uns arbeitest du mit Hilti, fährst einen Mercedes-Sprinter und wirst übertariflich bezahlt. Ganz ohne Anschreiben.',
   ctaPrimary: { label: 'Offene Stellen ansehen', href: '#stellen' },
   ctaSecondary: { label: 'So läuft die Bewerbung', href: '#prozess' },
   image: '/hero_02-3.png',
@@ -32,6 +33,14 @@ export const heroMeta = [
   { label: 'Anstellungsart', value: 'Festanstellung · unbefristet' },
   { label: 'Standort', value: 'Kühbach · Aichach · München' },
   { label: 'Start', value: 'Ab sofort · ohne Anschreiben' },
+];
+
+export const mainNav = [
+  { label: 'Startseite', href: 'https://spenglerei-peters.de/' },
+  { label: 'Leistungen', href: 'https://spenglerei-peters.de/leistungen/' },
+  { label: 'Über uns', href: 'https://spenglerei-peters.de/about/' },
+  { label: 'Jobs', href: 'https://spenglerei-peters.de/jobs/' },
+  { label: 'Kontakt', href: 'https://spenglerei-peters.de/contact-two/' },
 ];
 
 export const nav = [
@@ -101,7 +110,7 @@ export const stellen: Job[] = [
     requirements: [
       'Abgeschlossene Ausbildung oder mehrjährige Berufserfahrung',
       'Sorgfalt und Genauigkeit bei der Arbeit',
-      'Technisches Verständnis für Folien und Abdichtungssysteme',
+      'Technisches Verständnis für Folien und Abdichtung',
       'Führerschein Klasse B von Vorteil',
     ],
     we_offer: [
@@ -121,10 +130,10 @@ export const stellen: Job[] = [
     location: 'Kühbach & Umgebung',
     short_description: 'Erfahrener Dachdecker gesucht! Wir arbeiten in der Höhe, und das macht Dir Spaß.',
     key_tasks: [
-      'Steil- und Flachdach – Eindeckung mit Ziegeln und Bitumen',
+      'Steil- und Flachdach: Eindeckung mit Ziegeln und Bitumen',
       'Montage verschiedener Dacheindeckungen',
       'Materialverarbeitung und -verbrauch optimieren',
-      'Zusammenarbeit mit anderen Gewerken auf der Baustelle',
+      'Zusammenarbeit mit anderen Handwerkern auf der Baustelle',
     ],
     requirements: [
       'Ausbildung als Dachdecker oder mehrjährige Erfahrung',
@@ -149,7 +158,7 @@ export const benefits = {
   items: [
     { num: '01', title: 'Jeden Abend im eigenen Bett.', body: 'Keine Koffer, keine Hotelbetten. Wir arbeiten strikt regional zwischen Kühbach und München. Das bedeutet für dich: Kurze Wege und ein verlässlicher Feierabend bei deiner Familie.' },
     { num: '02', title: 'Mercedes Sprinter & echtes Werkzeug.', body: 'Wer saubere Arbeit verlangt, muss Top-Material stellen. Wir arbeiten mit Hilti und sind mit einem gut ausgestatteten Fuhrpark unterwegs. Material fehlt auf der Baustelle? Chef Norbert hält dir den Rücken frei und liefert nach.' },
-    { num: '03', title: 'Starke Bezahlung, faire Absprachen.', body: 'Gute Arbeit ist gutes Geld wert. Wir zahlen leistungsgerecht, übertariflich und absolut pünktlich. Anfahrtswege und Überstunden regeln wir offen und fair mit dir – ob als Ausgleich oder bar. Keine Tricks, kein Kleingedrucktes.' },
+    { num: '03', title: 'Starke Bezahlung, faire Absprachen.', body: 'Gute Arbeit ist gutes Geld wert. Wir zahlen leistungsgerecht, übertariflich und absolut pünktlich. Anfahrtswege und Überstunden regeln wir offen und fair mit dir. Ob als Ausgleich oder bar. Keine Tricks, kein Kleingedrucktes.' },
     { num: '04', title: 'Dein Job. Dein Rhythmus.', body: 'Wir hassen Helikopter-Chefs genauso wie du. Du weißt, was du tust, also plane deinen Tag selbst. Und wenn die Baustelle in Top-Qualität abgeschlossen ist? Dann hast du Feierabend. Punkt.' },
     { num: '05', title: 'Klartext auf Augenhöhe.', body: 'Bei uns gibt es keinen Flurfunk. Wenn was klemmt, packen wir es direkt und fair auf den Tisch. Wir helfen uns gegenseitig, anstatt mit dem Finger aufeinander zu zeigen.' },
     { num: '06', title: 'Ein Team, kein anonymer Haufen.', body: 'Der Morgen startet gemeinsam in der Werkstatt, gearbeitet wird meist entspannt im Zweier-Team. Und weil wir uns aufeinander verlassen können, stoßen wir auf der Wiesn oder an Weihnachten auch gerne gemeinsam an.' },
@@ -174,17 +183,17 @@ export const faq = {
   eyebrow: 'FAQ',
   items: [
     { q: 'Was erwartet Ihr von mir?', a: 'Ganz klar: Verlässlichkeit, Mitdenken und Kommunikation. Wir geben Dir den Freiraum, Deine Baustelle so zu organisieren, wie Du es für richtig hältst. Aber diese Freiheit muss man sich durch selbstständiges und sauberes Arbeiten verdienen.' },
-    { q: 'Brauche ich Berufserfahrung?', a: 'Ja. Du solltest Dein Handwerk gelernt haben und als Geselle wissen, was Du tust. Führerschein Klasse B ist Pflicht – wir haben 3 Sprinter und einen Citan, und wer eingespielt ist, kann auf einen unserer Firmenwagen warten.' },
+    { q: 'Brauche ich Berufserfahrung?', a: 'Ja. Du solltest Dein Handwerk gelernt haben und als Geselle wissen, was Du tust. Führerschein Klasse B ist Pflicht. Wir haben 3 Sprinter und einen Citan, und wer eingespielt ist, kann auf einen unserer Firmenwagen warten.' },
     { q: 'Wo sind die Baustellen? Muss ich auf Montage?', a: 'Ganz klares Nein zur Fernmontage. Du bist abends immer zu Hause. Unser Kerngebiet ist ein Umkreis von ca. 20 km rund um Kühbach/Aichach bis rüber nach München.' },
     { q: 'Wird die Fahrzeit bezahlt?', a: 'Selbstverständlich. Wenn Du im Sprinter sitzt und zur Baustelle fährst, ist das Arbeitszeit und wird voll vergütet. Wenn mal Überstunden anfallen, werden die fair mit Freizeit oder Auszahlung ausgeglichen.' },
     { q: 'Gibt es Weiterbildungsmöglichkeiten?', a: 'Ja. Wer bei uns zeigt, dass er eigenständig arbeitet und Verantwortung übernehmen kann, dem stehen alle Türen offen. Eine Entwicklung zum Kolonnenführer oder Vorarbeiter ist absolut drin.' },
     { q: 'Wie schnell bekomme ich eine Rückmeldung?', a: 'Wir lassen keine Bewerbungen wochenlang liegen. Wenn Du Dich bei uns meldest, rufen wir zeitig bei Dir zurück.' },
-    { q: 'Kann ich mir den Betrieb vorher ansehen?', a: 'Klar. Du kommst vorbei, lernst das Team kennen und kriegst einen echten Eindruck von uns – bevor Du Dich entscheidest.' },
+    { q: 'Kann ich mir den Betrieb vorher ansehen?', a: 'Klar. Du kommst vorbei, lernst das Team kennen und kriegst einen echten Eindruck von uns. Bevor Du Dich entscheidest.' },
   ],
 };
 
 export const footer = {
-  description: 'Dein Familienbetrieb für Spenglerei, Dach und Fassade. Handwerk mit Anspruch – seit über 25 Jahren.',
+  description: 'Dein Familienbetrieb für Spenglerei, Dach und Fassade. Handwerk mit Anspruch. Seit über 25 Jahren.',
   contact: {
     phone: '+49 8251 81269',
     email: 'handwerk@spenglerei-peters.de',
