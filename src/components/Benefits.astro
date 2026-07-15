@@ -1,0 +1,21 @@
+---
+import { benefits } from '../data';
+---
+<section class="section section--border-top" id="benefits">
+  <div class="wrap">
+    <div class="section-header" style="margin:0 auto 36px; text-align:center">
+      <span class="section-eyebrow">{benefits.eyebrow}</span>
+      <h2 class="section-title">{benefits.title}</h2>
+      <p class="section-body" style="margin:12px auto 0">{benefits.body}</p>
+    </div>
+    <div class="benefits-grid reveal">
+      {benefits.items.map((b) => (
+        <div class="benefit-card stagger">
+          <span class="benefit-card__num" aria-hidden="true">{b.num}</span>
+          <h3>{b.title}</h3>
+          <p>{b.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

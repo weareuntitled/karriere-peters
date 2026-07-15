@@ -1,0 +1,38 @@
+---
+import { hero, heroMeta } from '../data';
+const iconFor = {
+  'Anstellungsart': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+  'Standort': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  'Start': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>',
+};
+---
+<section class="section" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero__content reveal">
+        <span class="pill-badge pill-badge--hero">{hero.pill}</span>
+        <h1 class="hero__title stagger">{hero.title} <span class="hero__title-accent">{hero.titleAccent}</span></h1>
+        <p class="hero__brand stagger"><strong>{hero.brand}</strong><span aria-hidden="true"> · </span><span>{hero.location}</span></p>
+        <p class="hero__lead stagger">{hero.body}</p>
+        <div class="hero__actions stagger">
+          <a class="btn btn--primary btn--lg" href={hero.ctaPrimary.href}>{hero.ctaPrimary.label}</a>
+          <a class="btn btn--outline btn--lg" href={hero.ctaSecondary.href}>{hero.ctaSecondary.label}</a>
+        </div>
+        <ul class="meta-row hero__meta stagger">
+          {heroMeta.map((m) => (
+            <li class="meta-item" set:html={`${iconFor[m.label] ?? ''}<span>${m.value}</span>`}></li>
+          ))}
+        </ul>
+      </div>
+      <div class="hero__image-wrap reveal">
+        <div class="hero__image">
+          <img src={hero.image} alt="Spengler bei der Arbeit auf dem Dach" width="800" height="960" loading="eager" decoding="async" />
+        </div>
+        <div class="stat-card" aria-hidden="true">
+          <div class="stat-card__num">{hero.statNum}</div>
+          <div class="stat-card__label">{hero.statLabel}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

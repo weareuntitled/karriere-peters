@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data';
+---
+<Base title={`Impressum – ${site.name}`}>
+  <section class="section">
+    <div class="wrap" style="max-width:720px">
+      <h1 class="h2" style="margin-bottom:32px">Impressum</h1>
+      <p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <p>
+        Spenglermeisterbetrieb Peters GmbH<br />
+        {site.street}<br />
+        {site.zip} {site.city}
+      </p>
+      <p>
+        <strong>Vertreten durch:</strong><br />
+        [Inhaber-Name]
+      </p>
+      <p>
+        <strong>Kontakt:</strong><br />
+        Telefon: {site.phone}<br />
+        E-Mail: {site.email}
+      </p>
+      <p>
+        <strong>Registereintrag:</strong><br />
+        Eintragung im Handelsregister.<br />
+        Registergericht: [Amtsgericht]<br />
+        Registernummer: [HRB-Nummer]
+      </p>
+      <p>
+        <strong>Umsatzsteuer-ID:</strong><br />
+        Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />
+        [DE-Steuernummer]
+      </p>
+      <p>
+        <strong>Aufsichtsbehörde:</strong><br />
+        Handwerkskammer für München und Oberbayern<br />
+        Max-Joseph-Straße 4, 80333 München
+      </p>
+      <p>
+        <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+        [Inhaber-Name], {site.street}, {site.zip} {site.city}
+      </p>
+      <h2 class="h3" style="margin-top:32px">Haftungsausschluss</h2>
+      <p><strong>Haftung für Inhalte</strong></p>
+      <p>Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      <p><strong>Haftung für Links</strong></p>
+      <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      <p><strong>Urheberrecht</strong></p>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    </div>
+  </section>
+</Base>
