@@ -1,32 +1,37 @@
-<header class="header header-standard" id="hf-nav">
+<header class="header header-standard navbar-sticky" id="hf-nav">
   <div class="header-wrapper">
-    <div class="hf-container">
-      <nav class="hf-navbar">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light">
 
-        <a class="hf-logo" href="https://website.peters-erp.com/">
-          <img src="/peters-logo.png" alt="Spenglerei-Peters" />
+        <a class="logo" href="https://website.peters-erp.com/">
+          <img class="img-fluid" src="/peters-logo.png" alt="Spenglerei-Peters" />
         </a>
 
-        <button class="hf-toggler" id="hf-toggle" aria-label="Menü" aria-expanded="false">
-          <span></span><span></span><span></span>
+        <button class="navbar-toggler" id="hf-toggle" type="button" aria-label="Menü" aria-expanded="false">
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="hf-collapse" id="hf-nav-list">
-          <ul class="hf-nav">
-            <li><a href="https://website.peters-erp.com/">Startseite</a></li>
-            <li><a href="https://website.peters-erp.com/leistungen/">Leistungen</a></li>
-            <li><a href="https://website.peters-erp.com/projekte/">Projekte</a></li>
-            <li><a href="https://website.peters-erp.com/ueber-uns/">Über Uns</a></li>
-            <li><a href="https://karriere.peters-erp.com/">Jobs</a></li>
-            <li><a href="https://website.peters-erp.com/kontakt/">Kontakt</a></li>
+        <div class="collapse navbar-collapse" id="hf-collapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/">Startseite</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/leistungen/">Leistungen</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/projekte/">Projekte</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/ueber-uns/">Über Uns</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://karriere.peters-erp.com/">Jobs</a></li>
+            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/kontakt/">Kontakt</a></li>
           </ul>
         </div>
 
-        <button class="hf-search" aria-label="Suche">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-        </button>
+        <div class="nav-search-area">
+          <div class="search-block" style="display:none">
+            <form method="get" action="https://website.peters-erp.com/" class="induxo-serach xs-search-group">
+              <div class="input-group">
+                <input type="search" class="form-control" name="s" placeholder="Search" />
+                <button class="input-group-btn search-button"><i class="icon icon-search1"></i></button>
+              </div>
+            </form>
+          </div>
+        </div>
 
       </nav>
     </div>
@@ -36,119 +41,100 @@
 <script>
   (function(){
     var btn = document.getElementById('hf-toggle');
-    var nav = document.getElementById('hf-nav-list');
+    var nav = document.getElementById('hf-collapse');
     if (btn && nav) {
       btn.addEventListener('click', function(){
         var exp = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', exp ? 'false' : 'true');
-        nav.classList.toggle('open');
-      });
-      document.addEventListener('click', function(e){
-        if (!e.target.closest('#hf-nav') && nav.classList.contains('open')) {
-          nav.classList.remove('open');
-          btn.setAttribute('aria-expanded', 'false');
-        }
+        nav.classList.toggle('show');
       });
     }
   })();
 </script>
 
 <style>
+<link rel="stylesheet" href="https://website.peters-erp.com/wp-content/themes/induxo/assets/css/icon-font.css" />
+
+<style>
   #hf-nav.header {
     background: #fff; position: sticky; top: 0; z-index: 999;
     font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
-    border-bottom: 3px solid #c9a962;
     box-shadow: 0 13px 35px -12px rgba(35,35,35,0.15);
   }
-  .header-wrapper { width: 100%; }
-  .hf-container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  #hf-nav .header-wrapper { width: 100%; }
+  #hf-nav .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+  #hf-nav .navbar { height: 90px; padding: 0; display: flex; align-items: center; justify-content: space-between; border-bottom: none; }
+  #hf-nav .logo { flex-shrink: 0; line-height: 0; }
+  #hf-nav .logo img { display: block; height: 38px; width: auto; }
 
-  /* Navbar row */
-  .hf-navbar {
-    display: flex; align-items: center; justify-content: space-between;
-    height: 90px; position: relative;
-  }
-  .hf-logo { flex-shrink: 0; line-height: 0; }
-  .hf-logo img { display: block; height: 38px; width: auto; }
-
-  /* Desktop nav list */
-  .hf-collapse { display: flex; align-items: center; }
-  .hf-nav {
-    display: flex; gap: 0; list-style: none; margin: 0; padding: 0;
-  }
-  .hf-nav li { position: relative; }
-  .hf-nav a {
-    display: inline-flex; align-items: center;
-    padding: 7px 0; margin: 0 0 0 20px;
-    font-size: 14px; font-weight: 700; text-transform: uppercase;
-    color: #1a1c1e; text-decoration: none;
-    position: relative; line-height: 78px;
+  #hf-nav .collapse { display: flex; align-items: center; }
+  #hf-nav .navbar-nav { display: flex; gap: 0; list-style: none; margin: 0; padding: 0; margin-right: 30px; }
+  #hf-nav .nav-item { position: relative; display: inline-block; }
+  #hf-nav .nav-link {
+    display: block; font-size: 14px; font-weight: 700; text-transform: uppercase;
+    color: #1a1c1e; text-decoration: none; position: relative;
+    line-height: 78px; padding: 7px 0; margin-left: 20px;
     transition: color 0.35s;
   }
-  .hf-nav a::before {
+  #hf-nav .nav-link::before {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0;
-    height: 3px; border-color: transparent;
     border-bottom: 3px solid transparent;
     opacity: 0; transform: scaleX(0);
     transition: opacity 0.55s ease, transform 0.45s ease;
   }
-  .hf-nav a:hover,
-  .hf-nav a.active { color: #0071bc; }
-  .hf-nav a:hover::before,
-  .hf-nav a.active::before {
-    border-color: #0071bc; opacity: 1; transform: scaleX(1);
-  }
+  #hf-nav .nav-link:hover,
+  #hf-nav .nav-link.active { color: #0071bc !important; }
+  #hf-nav .nav-link:hover::before,
+  #hf-nav .nav-link.active::before { border-color: #0071bc; opacity: 1; transform: scaleX(1); }
 
-  /* Search button */
-  .hf-search {
-    flex-shrink: 0;
+  #hf-nav .nav-search-area { flex-shrink: 0; }
+  #hf-nav .search-trigger {
     width: 42px; height: 42px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
     background: none; border: 2px solid #1a1c1e; cursor: pointer;
-    color: #1a1c1e; padding: 0; margin-left: 20px;
+    color: #1a1c1e; padding: 0;
     transition: border-color 0.2s, color 0.2s;
   }
-  .hf-search:hover { border-color: #0071bc; color: #0071bc; }
+  #hf-nav .search-trigger:hover { border-color: #0071bc; color: #0071bc; }
 
-  /* Hamburger */
-  .hf-toggler {
+  #hf-nav .navbar-toggler {
     display: none; flex-direction: column; gap: 5px;
     width: 42px; height: 42px;
     background: #2d2d2d; border: none; cursor: pointer;
     padding: 14px 10px; align-items: center; justify-content: center;
+    border-radius: 0;
   }
-  .hf-toggler span {
+  #hf-nav .navbar-toggler-icon {
     display: block; width: 22px; height: 2px;
-    background: #fff; border-radius: 1px;
-    transition: transform 0.25s, opacity 0.2s;
+    background: #fff; position: relative;
+    transition: background 0.2s;
   }
-  .hf-toggler[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .hf-toggler[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-  .hf-toggler[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  #hf-nav .navbar-toggler-icon::before,
+  #hf-nav .navbar-toggler-icon::after {
+    content: ''; display: block; width: 22px; height: 2px;
+    background: #fff; position: absolute; left: 0;
+  }
+  #hf-nav .navbar-toggler-icon::before { top: -7px; }
+  #hf-nav .navbar-toggler-icon::after { top: 7px; }
 
-  /* Mobile */
   @media (max-width: 991px) {
-    .hf-navbar { height: 70px; }
-    .hf-toggler { display: flex; }
-    .hf-collapse { display: none; }
-    .hf-collapse.open { display: flex; }
-    .hf-collapse {
+    #hf-nav .navbar { height: 70px; }
+    #hf-nav .navbar-toggler { display: flex; }
+    #hf-nav .collapse { display: none; }
+    #hf-nav .collapse.show { display: flex; }
+    #hf-nav .collapse {
       position: absolute; top: 70px; left: 0; right: 0;
       background: #fff; flex-direction: column;
       padding: 12px 24px 24px;
-      border-bottom: 3px solid #c9a962;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    .hf-nav { flex-direction: column; width: 100%; gap: 0; }
-    .hf-nav a {
-      padding: 14px 0; width: 100%; font-size: 14px; line-height: normal;
-      margin: 0; text-transform: none; font-weight: 600;
-    }
-    .hf-nav a::before { display: none; }
-    .hf-search { display: none; }
+    #hf-nav .navbar-nav { flex-direction: column; width: 100%; gap: 0; margin-right: 0; }
+    #hf-nav .nav-link { line-height: normal; padding: 14px 0; width: 100%; margin: 0; text-transform: none; font-weight: 600; }
+    #hf-nav .nav-link::before { display: none; }
+    #hf-nav .nav-search-area { display: none; }
   }
 
   @media (max-width: 576px) {
-    .hf-container { padding: 0 16px; }
+    #hf-nav .container { padding: 0 16px; }
   }
 </style>
