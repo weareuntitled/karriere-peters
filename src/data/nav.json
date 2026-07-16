@@ -1,8 +1,8 @@
 [
-  { "label": "Startseite", "href": "https://peters-erp.com/" },
-  { "label": "Leistungen", "href": "https://peters-erp.com/leistungen/" },
-  { "label": "Projekte",   "href": "https://peters-erp.com/projekte/" },
-  { "label": "Über Uns",   "href": "https://peters-erp.com/ueber-uns/" },
+  { "label": "Startseite", "href": "https://website.peters-erp.com/" },
+  { "label": "Leistungen", "href": "https://website.peters-erp.com/leistungen/" },
+  { "label": "Projekte",   "href": "https://website.peters-erp.com/projekte/" },
+  { "label": "Über Uns",   "href": "https://website.peters-erp.com/ueber-uns/" },
   { "label": "Jobs",       "href": "https://karriere.peters-erp.com/" },
-  { "label": "Kontakt",    "href": "https://peters-erp.com/kontakt/" }
+  { "label": "Kontakt",    "href": "https://website.peters-erp.com/kontakt/" }
 ]
