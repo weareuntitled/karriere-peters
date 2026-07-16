@@ -1,6 +1,4 @@
 ---
-import Nav from '../components/Nav.astro';
-
 interface Props {
   title: string;
   description?: string;
@@ -22,8 +20,37 @@ const { title, description = 'Spenglermeisterbetrieb Peters GmbH – Ihr kompete
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
   </head>
   <body class="glassmorphism-theme">
-    <Nav />
+    <nav class="navbar navbar-expand-lg navbar-light" style="font-family:'DM Sans',sans-serif">
+      <a class="logo" href="https://website.peters-erp.com/">
+        <img class="img-fluid" src="https://website.peters-erp.com/wp-content/uploads/2026/05/peterslogo.png" alt="Spenglerei Peters" style="height:40px;width:auto">
+      </a>
+      <button class="navbar-toggler" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><i class="icon icon-menu"></i></span>
+      </button>
+      <div id="primary-nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/">Startseite</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/leistungen/">Leistungen</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/projekte/">Projekte</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/ueber-uns/">Über Uns</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://karriere.peters-erp.com/">Jobs</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
     <slot />
+    <script>
+      // @ts-ignore
+      (function(){
+        var btn=document.querySelector('.navbar-toggler');
+        var nav=document.querySelector('#primary-nav ul');
+        if(btn&&nav) btn.addEventListener('click',function(){
+          var e=btn.getAttribute('aria-expanded')==='true';
+          btn.setAttribute('aria-expanded',!e);
+          nav.classList.toggle('open');
+        });
+      })();
+    </script>
   </body>
 </html>
 
@@ -32,4 +59,19 @@ const { title, description = 'Spenglermeisterbetrieb Peters GmbH – Ihr kompete
   @import '../styles/design-tokens.css';
   @import '../styles/liquid-glass-system.css';
   @import '../styles/style.css';
+  .navbar { position:sticky; top:0; z-index:1000; padding:0 24px; height:64px;
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,0.06); display:flex; align-items:center; justify-content:space-between; }
+  .navbar .logo { flex-shrink:0; }
+  .navbar-nav { display:flex; gap:4px; list-style:none; margin:0; padding:0; }
+  .nav-item a { display:inline-flex; align-items:center; padding:8px 16px; font-size:14px; font-weight:500;
+    color:#404751; text-decoration:none; border-radius:8px; transition:background .2s,color .2s; }
+  .nav-item a:hover { background:#d1e4ff; color:#0071bc; }
+  .navbar-toggler { display:none; background:none; border:none; padding:8px; cursor:pointer; }
+  @media (max-width:768px) {
+    .navbar-toggler { display:block; }
+    .navbar-nav { display:none; flex-direction:column; width:100%; position:absolute; top:64px; left:0;
+      background:rgba(255,255,255,0.98); padding:8px; border-bottom:1px solid rgba(0,0,0,0.06); }
+    .navbar-nav.open { display:flex; }
+  }
 </style>
