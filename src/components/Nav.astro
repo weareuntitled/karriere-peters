@@ -15,7 +15,7 @@
 
         <div class="collapse navbar-collapse" id="hf-collapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/">Startseite</a></li>
+            <li class="nav-item active"><a class="nav-link active" href="https://website.peters-erp.com/">Startseite</a></li>
             <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/leistungen/">Leistungen</a></li>
             <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/projekte/">Projekte</a></li>
             <li class="nav-item"><a class="nav-link" href="https://website.peters-erp.com/ueber-uns/">Über Uns</a></li>
@@ -62,22 +62,21 @@
   }
   #hf-nav .header-wrapper { width: 100%; }
   #hf-nav .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
-  #hf-nav .navbar { height: 90px; padding: 0; display: flex; align-items: center; justify-content: space-between; border-bottom: none; }
-  #hf-nav .logo { flex-shrink: 0; line-height: 0; max-width: 140px; }
-  #hf-nav .logo img { display: block; height: 38px; width: auto; }
+  #hf-nav .navbar { height: 90px; padding: 0; display: flex; align-items: center; border-bottom: none; }
+  #hf-nav .logo { flex-shrink: 0; line-height: 0; }
+  #hf-nav .logo img { display: block; max-width: 140px; height: auto; }
 
   #hf-nav .collapse { display: flex; align-items: center; flex: 1; }
-  #hf-nav .navbar-nav { display: flex; list-style: none; margin: 0; padding: 0; margin-right: 30px; margin-left: auto; }
+  #hf-nav .navbar-nav { display: flex; list-style: none; margin: 0 30px 0 auto; padding: 0; }
   #hf-nav .nav-item { position: relative; display: inline-block; }
   #hf-nav .nav-link {
     display: block; font-size: 14px; font-weight: 700; text-transform: uppercase;
     color: #1a1c1e; text-decoration: none; position: relative;
-    line-height: 78px; padding: 7px 0; margin-left: 20px;
+    line-height: 78px; padding: 7px 8px; margin-left: 20px;
     transition: color 0.35s;
   }
-
   #hf-nav .nav-link::before {
-    content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+    content: ''; position: absolute; left: 8px; right: 8px; bottom: 0;
     border-bottom: 3px solid transparent;
     opacity: 0; transform: scaleX(0);
     transition: opacity 0.55s ease, transform 0.45s ease;
@@ -87,7 +86,7 @@
   #hf-nav .nav-link:hover::before,
   #hf-nav .nav-link.active::before { border-color: #0071bc; opacity: 1; transform: scaleX(1); }
 
-  #hf-nav .nav-search-area { flex-shrink: 0; }
+  #hf-nav .nav-search-area { flex-shrink: 0; margin-left: 20px; }
 
   #hf-nav .navbar-toggler {
     display: none; flex-direction: column; gap: 5px;
@@ -109,10 +108,11 @@
       padding: 12px 24px 24px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
-    #hf-nav .navbar-nav { flex-direction: column; width: 100%; gap: 0; margin-right: 0; }
-    #hf-nav .nav-link { line-height: normal; padding: 14px 0; width: 100%; text-transform: none; font-weight: 600; }
+    #hf-nav .navbar-nav { flex-direction: column; width: 100%; gap: 0; margin: 0; }
+    #hf-nav .nav-link { line-height: normal; padding: 14px 0; width: 100%; margin: 0; text-transform: none; font-weight: 600; }
     #hf-nav .nav-link::before { display: none; }
     #hf-nav .nav-search-area { display: none; }
+    #hf-nav .logo img { max-width: 100px; }
   }
 
   @media (max-width: 576px) {
