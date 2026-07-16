@@ -1,0 +1,132 @@
+---
+import navItems from '../data/nav.json';
+
+const currentUrl = Astro.url.pathname;
+---
+
+<nav class="sp-nav" id="sp-nav">
+  <div class="sp-nav__inner">
+    <a href="https://peters-erp.com/" class="sp-nav__logo" aria-label="Zur Startseite">
+      <img src="/images/logoheader1000.jpg" alt="Spenglerei Peters" width="160" height="40" />
+    </a>
+
+    <button class="sp-nav__toggle" id="sp-nav-toggle" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="sp-nav__list" id="sp-nav-list">
+      {navItems.map(item => (
+        <li class="sp-nav__item">
+          <a href={item.href}
+             class={`sp-nav__link${currentUrl === new URL(item.href).pathname ? ' sp-nav__link--active' : ''}`}>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('sp-nav-toggle');
+  const list = document.getElementById('sp-nav-list');
+  if (toggle && list) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', !expanded);
+      list.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#sp-nav') && list.classList.contains('open')) {
+        list.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
+</script>
+
+<style>
+  .sp-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+  .sp-nav__inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+  .sp-nav__logo { flex-shrink: 0; line-height: 0; }
+  .sp-nav__logo img { display: block; height: 32px; width: auto; }
+  .sp-nav__list {
+    display: flex;
+    gap: 4px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .sp-nav__link {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #404751;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .sp-nav__link:hover,
+  .sp-nav__link--active {
+    background: #d1e4ff;
+    color: #0071bc;
+  }
+  .sp-nav__toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .sp-nav__toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #1a1c1e;
+    border-radius: 2px;
+    transition: transform 0.2s;
+  }
+  .sp-nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .sp-nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .sp-nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  @media (max-width: 768px) {
+    .sp-nav__toggle { display: flex; }
+    .sp-nav__list {
+      display: none;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      padding: 8px;
+    }
+    .sp-nav__list.open { display: flex; }
+    .sp-nav__link { padding: 12px 16px; width: 100%; }
+  }
+</style>
