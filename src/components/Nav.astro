@@ -107,12 +107,13 @@
     #hf-nav .collapse.show { display: flex; }
     #hf-nav .collapse {
       position: absolute; top: 70px; left: 0; right: 0;
-      background: #fff; flex-direction: column;
+      background: #2d2d2d; flex-direction: column;
       padding: 12px 24px 24px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
     }
     #hf-nav .navbar-nav { flex-direction: column; width: 100%; gap: 0; margin: 0; }
-    #hf-nav .nav-link { line-height: normal; padding: 14px 0; width: 100%; margin: 0; text-transform: none; font-weight: 600; }
+    #hf-nav .nav-link { line-height: normal; padding: 14px 0; width: 100%; margin: 0; text-transform: none; font-weight: 600; color: #fff; }
+    #hf-nav .nav-link:hover { color: #fff !important; background: rgba(255,255,255,0.1); border-radius: 4px; padding-left: 8px !important; }
+    #hf-nav .nav-link.active { color: #64b5f6 !important; }
     #hf-nav .nav-link::before { display: none; }
     #hf-nav .nav-search-area { display: none; }
     #hf-nav .logo img { max-width: 110px; }
