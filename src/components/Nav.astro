@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="https://website.peters-erp.com/wp-content/themes/induxo/assets/css/icon-font.css" />
+
 <header class="header header-standard navbar-sticky" id="hf-nav">
   <div class="header-wrapper">
     <div class="container">
@@ -8,7 +10,7 @@
         </a>
 
         <button class="navbar-toggler" id="hf-toggle" type="button" aria-label="Menü" aria-expanded="false">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon"><i class="icon icon-menu"></i></span>
         </button>
 
         <div class="collapse navbar-collapse" id="hf-collapse">
@@ -53,9 +55,6 @@
 </script>
 
 <style>
-<link rel="stylesheet" href="https://website.peters-erp.com/wp-content/themes/induxo/assets/css/icon-font.css" />
-
-<style>
   #hf-nav.header {
     background: #fff; position: sticky; top: 0; z-index: 999;
     font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
@@ -64,7 +63,7 @@
   #hf-nav .header-wrapper { width: 100%; }
   #hf-nav .container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
   #hf-nav .navbar { height: 90px; padding: 0; display: flex; align-items: center; justify-content: space-between; border-bottom: none; }
-  #hf-nav .logo { flex-shrink: 0; line-height: 0; }
+  #hf-nav .logo { flex-shrink: 0; line-height: 0; max-width: 140px; }
   #hf-nav .logo img { display: block; height: 38px; width: auto; }
 
   #hf-nav .collapse { display: flex; align-items: center; }
@@ -88,14 +87,6 @@
   #hf-nav .nav-link.active::before { border-color: #0071bc; opacity: 1; transform: scaleX(1); }
 
   #hf-nav .nav-search-area { flex-shrink: 0; }
-  #hf-nav .search-trigger {
-    width: 42px; height: 42px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    background: none; border: 2px solid #1a1c1e; cursor: pointer;
-    color: #1a1c1e; padding: 0;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  #hf-nav .search-trigger:hover { border-color: #0071bc; color: #0071bc; }
 
   #hf-nav .navbar-toggler {
     display: none; flex-direction: column; gap: 5px;
@@ -104,18 +95,7 @@
     padding: 14px 10px; align-items: center; justify-content: center;
     border-radius: 0;
   }
-  #hf-nav .navbar-toggler-icon {
-    display: block; width: 22px; height: 2px;
-    background: #fff; position: relative;
-    transition: background 0.2s;
-  }
-  #hf-nav .navbar-toggler-icon::before,
-  #hf-nav .navbar-toggler-icon::after {
-    content: ''; display: block; width: 22px; height: 2px;
-    background: #fff; position: absolute; left: 0;
-  }
-  #hf-nav .navbar-toggler-icon::before { top: -7px; }
-  #hf-nav .navbar-toggler-icon::after { top: 7px; }
+  #hf-nav .navbar-toggler-icon i { color: #fff; font-size: 18px; }
 
   @media (max-width: 991px) {
     #hf-nav .navbar { height: 70px; }
