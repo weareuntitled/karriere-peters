@@ -67,14 +67,15 @@
   #hf-nav .logo img { display: block; height: 38px; width: auto; }
 
   #hf-nav .collapse { display: flex; align-items: center; flex: 1; }
-  #hf-nav .navbar-nav { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; margin-right: 30px; margin-left: auto; }
+  #hf-nav .navbar-nav { display: flex; list-style: none; margin: 0; padding: 0; margin-right: 30px; margin-left: auto; }
   #hf-nav .nav-item { position: relative; display: inline-block; }
   #hf-nav .nav-link {
     display: block; font-size: 14px; font-weight: 700; text-transform: uppercase;
     color: #1a1c1e; text-decoration: none; position: relative;
-    line-height: 78px; padding: 7px 0;
+    line-height: 78px; padding: 7px 0; margin-left: 20px;
     transition: color 0.35s;
   }
+
   #hf-nav .nav-link::before {
     content: ''; position: absolute; left: 0; right: 0; bottom: 0;
     border-bottom: 3px solid transparent;
